@@ -1,0 +1,4 @@
+conference
+==========
+
+Spring demo application
