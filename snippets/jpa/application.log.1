@@ -1,0 +1,597 @@
+DEBUG main org.hibernate.engine.transaction.spi.AbstractTransactionImpl - rolling back
+DEBUG main org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction - rolled JDBC Connection
+DEBUG main org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction - re-enabling autocommit
+DEBUG main org.springframework.orm.hibernate4.HibernateTransactionManager - Closing Hibernate Session [SessionImpl(PersistenceContext[entityKeys=[EntityKey[com.hantsylabs.example.conference.model.Conference#4], EntityKey[com.hantsylabs.example.conference.model.Conference#3]],collectionKeys=[]];ActionQueue[insertions=[] updates=[] deletions=[EntityDeleteAction[com.hantsylabs.example.conference.model.Conference#3], EntityDeleteAction[com.hantsylabs.example.conference.model.Conference#4]] collectionCreations=[] collectionRemovals=[] collectionUpdates=[] unresolvedInsertDependencies=UnresolvedEntityInsertActions[]])] after transaction
+DEBUG main org.hibernate.engine.jdbc.internal.LogicalConnectionImpl - Releasing JDBC connection
+DEBUG main org.hibernate.engine.jdbc.internal.LogicalConnectionImpl - Released JDBC connection
+DEBUG main org.hibernate.engine.jdbc.internal.proxy.ConnectionProxyHandler - HHH000163: Logical connection releasing its physical connection
+DEBUG main org.hibernate.engine.jdbc.internal.proxy.ConnectionProxyHandler - HHH000163: Logical connection releasing its physical connection
+DEBUG main org.hibernate.engine.jdbc.internal.proxy.ConnectionProxyHandler - HHH000163: Logical connection releasing its physical connection
+DEBUG main org.hibernate.engine.jdbc.internal.proxy.ConnectionProxyHandler - HHH000163: Logical connection releasing its physical connection
+INFO main org.springframework.test.context.transaction.TransactionalTestExecutionListener - Rolled back transaction after test execution for test context [TestContext@6b5b1b88 testClass = Hibernate4ConferenceDaoImplTest, testInstance = com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest@1b32deb7, testMethod = updateConference@Hibernate4ConferenceDaoImplTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@46d0cc3a testClass = Hibernate4ConferenceDaoImplTest, locations = '{classpath:/com/hantsylabs/example/conference/config/applicationContext-hibernate4.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]
+DEBUG main org.springframework.test.context.support.DirtiesContextTestExecutionListener - After test method: context [[TestContext@6b5b1b88 testClass = Hibernate4ConferenceDaoImplTest, testInstance = com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest@1b32deb7, testMethod = updateConference@Hibernate4ConferenceDaoImplTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@46d0cc3a testClass = Hibernate4ConferenceDaoImplTest, locations = '{classpath:/com/hantsylabs/example/conference/config/applicationContext-hibernate4.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]], class dirties context [false], class mode [null], method dirties context [false].
+DEBUG main org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest]
+DEBUG main org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest]
+DEBUG main org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[TestContext@6b5b1b88 testClass = Hibernate4ConferenceDaoImplTest, testInstance = com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest@5881f8d6, testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@46d0cc3a testClass = Hibernate4ConferenceDaoImplTest, locations = '{classpath:/com/hantsylabs/example/conference/config/applicationContext-hibernate4.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]].
+DEBUG main org.springframework.test.context.CacheAwareContextLoaderDelegate - Retrieved ApplicationContext from cache with key [[MergedContextConfiguration@46d0cc3a testClass = Hibernate4ConferenceDaoImplTest, locations = '{classpath:/com/hantsylabs/example/conference/config/applicationContext-hibernate4.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]].
+DEBUG main org.springframework.beans.factory.annotation.InjectionMetadata - Processing injected method of bean 'com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest': AutowiredFieldElement for com.hantsylabs.example.conference.dao.ConferenceDao com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest.conferenceDao
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'hibernate4ConferenceDaoImpl'
+DEBUG main org.springframework.beans.factory.annotation.InjectionMetadata - Processing injected method of bean 'com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest': AutowiredFieldElement for org.hibernate.SessionFactory com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest.sessionFactory
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'sessionFactory'
+DEBUG main org.springframework.transaction.annotation.AnnotationTransactionAttributeSource - Adding transactional method 'deleteConference' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+DEBUG main org.springframework.test.context.transaction.TransactionalTestExecutionListener - Explicit transaction definition [PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''] found for test context [TestContext@6b5b1b88 testClass = Hibernate4ConferenceDaoImplTest, testInstance = com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest@5881f8d6, testMethod = deleteConference@Hibernate4ConferenceDaoImplTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@46d0cc3a testClass = Hibernate4ConferenceDaoImplTest, locations = '{classpath:/com/hantsylabs/example/conference/config/applicationContext-hibernate4.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]
+DEBUG main org.springframework.test.context.CacheAwareContextLoaderDelegate - Retrieved ApplicationContext from cache with key [[MergedContextConfiguration@46d0cc3a testClass = Hibernate4ConferenceDaoImplTest, locations = '{classpath:/com/hantsylabs/example/conference/config/applicationContext-hibernate4.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]].
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'transactionManager'
+DEBUG main org.springframework.orm.hibernate4.HibernateTransactionManager - Creating new transaction with name [deleteConference]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+DEBUG main org.springframework.orm.hibernate4.HibernateTransactionManager - Opened new Session [SessionImpl(PersistenceContext[entityKeys=[],collectionKeys=[]];ActionQueue[insertions=[] updates=[] deletions=[] collectionCreations=[] collectionRemovals=[] collectionUpdates=[] unresolvedInsertDependencies=UnresolvedEntityInsertActions[]])] for Hibernate transaction
+DEBUG main org.springframework.orm.hibernate4.HibernateTransactionManager - Preparing JDBC Connection of Hibernate Session [SessionImpl(PersistenceContext[entityKeys=[],collectionKeys=[]];ActionQueue[insertions=[] updates=[] deletions=[] collectionCreations=[] collectionRemovals=[] collectionUpdates=[] unresolvedInsertDependencies=UnresolvedEntityInsertActions[]])]
+DEBUG main org.hibernate.engine.transaction.spi.AbstractTransactionImpl - begin
+DEBUG main org.hibernate.engine.jdbc.internal.LogicalConnectionImpl - Obtaining JDBC connection
+DEBUG main org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1]
+DEBUG main org.hibernate.engine.jdbc.internal.LogicalConnectionImpl - Obtained JDBC connection
+DEBUG main org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction - initial autocommit status: true
+DEBUG main org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction - disabling autocommit
+DEBUG main org.springframework.orm.hibernate4.HibernateTransactionManager - Exposing Hibernate transaction as JDBC transaction [org.hibernate.engine.jdbc.internal.proxy.ConnectionProxyHandler@3cf7d6ff[valid=true]]
+DEBUG main org.springframework.test.context.transaction.TransactionalTestExecutionListener - No method-level @Rollback override: using default rollback [true] for test context [TestContext@6b5b1b88 testClass = Hibernate4ConferenceDaoImplTest, testInstance = com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest@5881f8d6, testMethod = deleteConference@Hibernate4ConferenceDaoImplTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@46d0cc3a testClass = Hibernate4ConferenceDaoImplTest, locations = '{classpath:/com/hantsylabs/example/conference/config/applicationContext-hibernate4.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]
+INFO main org.springframework.test.context.transaction.TransactionalTestExecutionListener - Began transaction (3): transaction manager [org.springframework.orm.hibernate4.HibernateTransactionManager@5c22bd75]; rollback [true]
+DEBUG main org.springframework.transaction.aspectj.AnnotationTransactionAspect - Skipping transactional joinpoint [com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest.beforeTestCase] because no transaction manager has been configured
+DEBUG main com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest - ===================before test=====================
+DEBUG main com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest - new conference object:Conference[id=<null>,version=<null>,name=JUD2013,description=JBoss User Developer Conference 2013 Boston,startedDate=Sun Jun 09 23:27:58 CST 2013,endedDate=Sun Jun 16 23:27:58 CST 2013,slug=jud-2013]
+DEBUG main org.hibernate.engine.spi.ActionQueue - Executing identity-insert immediately
+DEBUG main org.hibernate.SQL - 
+    insert 
+    into
+        Conference
+        (id, description, ended_date, name, slug, started_date, version) 
+    values
+        (null, ?, ?, ?, ?, ?, ?)
+DEBUG main org.hibernate.id.IdentifierGeneratorHelper - Natively generated identity: 5
+DEBUG main org.springframework.transaction.annotation.AnnotationTransactionAttributeSource - Adding transactional method 'deleteConference' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+DEBUG main org.springframework.transaction.aspectj.AnnotationTransactionAspect - Skipping transactional joinpoint [com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest.deleteConference] because no transaction manager has been configured
+DEBUG main com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest - new conference object:Conference[id=<null>,version=<null>,name=JUD2013,description=JBoss User Developer Conference 2013 Boston,startedDate=Sun Jun 09 23:27:58 CST 2013,endedDate=Sun Jun 16 23:27:58 CST 2013,slug=jud-2013]
+DEBUG main org.hibernate.engine.spi.ActionQueue - Executing identity-insert immediately
+DEBUG main org.hibernate.SQL - 
+    insert 
+    into
+        Conference
+        (id, description, ended_date, name, slug, started_date, version) 
+    values
+        (null, ?, ?, ?, ?, ?, ?)
+DEBUG main org.hibernate.id.IdentifierGeneratorHelper - Natively generated identity: 6
+DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Processing flush-time cascades
+DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Dirty checking collections
+DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 2 objects
+DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+DEBUG main org.hibernate.internal.util.EntityPrinter - Listing entities:
+DEBUG main org.hibernate.internal.util.EntityPrinter - com.hantsylabs.example.conference.model.Conference{id=5, endedDate=Sun Jun 16 23:27:58 CST 2013, startedDate=Sun Jun 09 23:27:58 CST 2013, description=JBoss User Developer Conference 2013 Boston, name=JUD2013, slug=jud-2013, version=0}
+DEBUG main org.hibernate.internal.util.EntityPrinter - com.hantsylabs.example.conference.model.Conference{id=6, endedDate=Sun Jun 16 23:27:58 CST 2013, startedDate=Sun Jun 09 23:27:58 CST 2013, description=JBoss User Developer Conference 2013 Boston, name=JUD2013, slug=jud-2013, version=0}
+DEBUG main com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest - id @=6
+DEBUG main org.hibernate.loader.Loader - Loading entity: [com.hantsylabs.example.conference.model.Conference#6]
+DEBUG main org.hibernate.SQL - 
+    select
+        conference0_.id as id0_0_,
+        conference0_.description as descript2_0_0_,
+        conference0_.ended_date as ended3_0_0_,
+        conference0_.name as name0_0_,
+        conference0_.slug as slug0_0_,
+        conference0_.started_date as started6_0_0_,
+        conference0_.version as version0_0_ 
+    from
+        Conference conference0_ 
+    where
+        conference0_.id=?
+DEBUG main org.hibernate.loader.Loader - Result set row: 0
+DEBUG main org.hibernate.loader.Loader - Result row: EntityKey[com.hantsylabs.example.conference.model.Conference#6]
+DEBUG main org.hibernate.engine.internal.TwoPhaseLoad - Resolving associations for [com.hantsylabs.example.conference.model.Conference#6]
+DEBUG main org.hibernate.engine.internal.TwoPhaseLoad - Done materializing entity [com.hantsylabs.example.conference.model.Conference#6]
+DEBUG main org.hibernate.loader.Loader - Done entity load
+DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Processing flush-time cascades
+DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Dirty checking collections
+DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 1 deletions to 2 objects
+DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+DEBUG main org.hibernate.internal.util.EntityPrinter - Listing entities:
+DEBUG main org.hibernate.internal.util.EntityPrinter - com.hantsylabs.example.conference.model.Conference{id=5, endedDate=Sun Jun 16 23:27:58 CST 2013, startedDate=Sun Jun 09 23:27:58 CST 2013, description=JBoss User Developer Conference 2013 Boston, name=JUD2013, slug=jud-2013, version=0}
+DEBUG main org.hibernate.internal.util.EntityPrinter - com.hantsylabs.example.conference.model.Conference{id=6, endedDate=2013-06-16 23:27:58.28, startedDate=2013-06-09 23:27:58.28, description=JBoss User Developer Conference 2013 Boston, name=JUD2013, slug=jud-2013, version=0}
+DEBUG main org.hibernate.SQL - 
+    delete 
+    from
+        Conference 
+    where
+        id=? 
+        and version=?
+DEBUG main org.hibernate.internal.SessionImpl - Initializing proxy: [com.hantsylabs.example.conference.model.Conference#6]
+DEBUG main org.hibernate.loader.Loader - Loading entity: [com.hantsylabs.example.conference.model.Conference#6]
+DEBUG main org.hibernate.SQL - 
+    select
+        conference0_.id as id0_0_,
+        conference0_.description as descript2_0_0_,
+        conference0_.ended_date as ended3_0_0_,
+        conference0_.name as name0_0_,
+        conference0_.slug as slug0_0_,
+        conference0_.started_date as started6_0_0_,
+        conference0_.version as version0_0_ 
+    from
+        Conference conference0_ 
+    where
+        conference0_.id=?
+DEBUG main org.hibernate.loader.Loader - Done entity load
+DEBUG main org.springframework.transaction.aspectj.AnnotationTransactionAspect - Skipping transactional joinpoint [com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest.afterTestCase] because no transaction manager has been configured
+DEBUG main com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest - ===================after test=====================
+DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Processing flush-time cascades
+DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Dirty checking collections
+DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+DEBUG main org.hibernate.internal.util.EntityPrinter - Listing entities:
+DEBUG main org.hibernate.internal.util.EntityPrinter - com.hantsylabs.example.conference.model.Conference{id=5, endedDate=Sun Jun 16 23:27:58 CST 2013, startedDate=Sun Jun 09 23:27:58 CST 2013, description=JBoss User Developer Conference 2013 Boston, name=JUD2013, slug=jud-2013, version=0}
+DEBUG main org.hibernate.SQL - 
+    select
+        conference0_.id as id0_,
+        conference0_.description as descript2_0_,
+        conference0_.ended_date as ended3_0_,
+        conference0_.name as name0_,
+        conference0_.slug as slug0_,
+        conference0_.started_date as started6_0_,
+        conference0_.version as version0_ 
+    from
+        Conference conference0_
+DEBUG main org.hibernate.loader.Loader - Result set row: 0
+DEBUG main org.hibernate.loader.Loader - Result row: EntityKey[com.hantsylabs.example.conference.model.Conference#5]
+DEBUG main org.hibernate.loader.Loader - Loading entity: [com.hantsylabs.example.conference.model.Conference#5]
+DEBUG main org.hibernate.SQL - 
+    select
+        conference0_.id as id0_0_,
+        conference0_.description as descript2_0_0_,
+        conference0_.ended_date as ended3_0_0_,
+        conference0_.name as name0_0_,
+        conference0_.slug as slug0_0_,
+        conference0_.started_date as started6_0_0_,
+        conference0_.version as version0_0_ 
+    from
+        Conference conference0_ 
+    where
+        conference0_.id=?
+DEBUG main org.hibernate.loader.Loader - Result set row: 0
+DEBUG main org.hibernate.loader.Loader - Result row: EntityKey[com.hantsylabs.example.conference.model.Conference#5]
+DEBUG main org.hibernate.engine.internal.TwoPhaseLoad - Resolving associations for [com.hantsylabs.example.conference.model.Conference#5]
+DEBUG main org.hibernate.engine.internal.TwoPhaseLoad - Done materializing entity [com.hantsylabs.example.conference.model.Conference#5]
+DEBUG main org.hibernate.loader.Loader - Done entity load
+DEBUG main org.springframework.test.context.transaction.TransactionalTestExecutionListener - No method-level @Rollback override: using default rollback [true] for test context [TestContext@6b5b1b88 testClass = Hibernate4ConferenceDaoImplTest, testInstance = com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest@5881f8d6, testMethod = deleteConference@Hibernate4ConferenceDaoImplTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@46d0cc3a testClass = Hibernate4ConferenceDaoImplTest, locations = '{classpath:/com/hantsylabs/example/conference/config/applicationContext-hibernate4.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]
+DEBUG main org.springframework.orm.hibernate4.HibernateTransactionManager - Initiating transaction rollback
+DEBUG main org.springframework.orm.hibernate4.HibernateTransactionManager - Rolling back Hibernate transaction on Session [SessionImpl(PersistenceContext[entityKeys=[EntityKey[com.hantsylabs.example.conference.model.Conference#5]],collectionKeys=[]];ActionQueue[insertions=[] updates=[] deletions=[EntityDeleteAction[com.hantsylabs.example.conference.model.Conference#5]] collectionCreations=[] collectionRemovals=[] collectionUpdates=[] unresolvedInsertDependencies=UnresolvedEntityInsertActions[]])]
+DEBUG main org.hibernate.engine.transaction.spi.AbstractTransactionImpl - rolling back
+DEBUG main org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction - rolled JDBC Connection
+DEBUG main org.hibernate.engine.transaction.internal.jdbc.JdbcTransaction - re-enabling autocommit
+DEBUG main org.springframework.orm.hibernate4.HibernateTransactionManager - Closing Hibernate Session [SessionImpl(PersistenceContext[entityKeys=[EntityKey[com.hantsylabs.example.conference.model.Conference#5]],collectionKeys=[]];ActionQueue[insertions=[] updates=[] deletions=[EntityDeleteAction[com.hantsylabs.example.conference.model.Conference#5]] collectionCreations=[] collectionRemovals=[] collectionUpdates=[] unresolvedInsertDependencies=UnresolvedEntityInsertActions[]])] after transaction
+DEBUG main org.hibernate.engine.jdbc.internal.LogicalConnectionImpl - Releasing JDBC connection
+DEBUG main org.hibernate.engine.jdbc.internal.LogicalConnectionImpl - Released JDBC connection
+DEBUG main org.hibernate.engine.jdbc.internal.proxy.ConnectionProxyHandler - HHH000163: Logical connection releasing its physical connection
+DEBUG main org.hibernate.engine.jdbc.internal.proxy.ConnectionProxyHandler - HHH000163: Logical connection releasing its physical connection
+DEBUG main org.hibernate.engine.jdbc.internal.proxy.ConnectionProxyHandler - HHH000163: Logical connection releasing its physical connection
+DEBUG main org.hibernate.engine.jdbc.internal.proxy.ConnectionProxyHandler - HHH000163: Logical connection releasing its physical connection
+INFO main org.springframework.test.context.transaction.TransactionalTestExecutionListener - Rolled back transaction after test execution for test context [TestContext@6b5b1b88 testClass = Hibernate4ConferenceDaoImplTest, testInstance = com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest@5881f8d6, testMethod = deleteConference@Hibernate4ConferenceDaoImplTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@46d0cc3a testClass = Hibernate4ConferenceDaoImplTest, locations = '{classpath:/com/hantsylabs/example/conference/config/applicationContext-hibernate4.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]
+DEBUG main org.springframework.test.context.support.DirtiesContextTestExecutionListener - After test method: context [[TestContext@6b5b1b88 testClass = Hibernate4ConferenceDaoImplTest, testInstance = com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest@5881f8d6, testMethod = deleteConference@Hibernate4ConferenceDaoImplTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@46d0cc3a testClass = Hibernate4ConferenceDaoImplTest, locations = '{classpath:/com/hantsylabs/example/conference/config/applicationContext-hibernate4.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]], class dirties context [false], class mode [null], method dirties context [false].
+DEBUG main org.springframework.test.context.support.DirtiesContextTestExecutionListener - After test class: context [[TestContext@6b5b1b88 testClass = Hibernate4ConferenceDaoImplTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@46d0cc3a testClass = Hibernate4ConferenceDaoImplTest, locations = '{classpath:/com/hantsylabs/example/conference/config/applicationContext-hibernate4.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]], dirtiesContext [false].
+INFO Thread-2 org.springframework.context.support.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@3f9c437d: startup date [Fri May 10 23:27:53 CST 2013]; root of context hierarchy
+DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Returning cached instance of singleton bean 'lifecycleProcessor'
+INFO Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1d46fac0: defining beans [dataSource,sessionFactory,transactionManager,hibernate4ConferenceDaoImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+DEBUG Thread-2 org.springframework.beans.factory.support.DefaultListableBeanFactory - Retrieved dependent beans for bean 'hibernate4ConferenceDaoImpl': [com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest]
+DEBUG Thread-2 org.springframework.beans.factory.support.DisposableBeanAdapter - Invoking destroy() on bean with name 'sessionFactory'
+DEBUG Thread-2 org.hibernate.internal.SessionFactoryImpl - HHH000031: Closing
+DEBUG Thread-2 org.springframework.beans.factory.support.DisposableBeanAdapter - Invoking destroy() on bean with name 'dataSource'
+DEBUG Thread-2 org.springframework.jdbc.datasource.SimpleDriverDataSource - Creating new JDBC Driver Connection to [jdbc:h2:mem:dataSource;DB_CLOSE_DELAY=-1]
+DEBUG main org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest].
+DEBUG main org.springframework.test.context.support.AbstractDelegatingSmartContextLoader - Delegating to GenericXmlContextLoader to process context configuration [ContextConfigurationAttributes@5667ec05 declaringClass = 'com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest', locations = '{classpath:/com/hantsylabs/example/conference/config/applicationContext-jpa.xml}', classes = '{}', inheritLocations = true, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.test.context.ContextLoader'].
+DEBUG main org.springframework.test.context.ContextLoaderUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest]
+DEBUG main org.springframework.test.context.TestContextManager - @TestExecutionListeners is not present for class [class com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest]: using defaults.
+DEBUG main org.springframework.test.context.TestContextManager - Could not instantiate default TestExecutionListener class [org.springframework.test.context.web.ServletTestExecutionListener]. Specify custom listener classes or make the default listener classes available.
+DEBUG main org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest]
+DEBUG main org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest]
+DEBUG main org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest]
+DEBUG main org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest]
+DEBUG main org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest]
+DEBUG main org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest]
+DEBUG main org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest]
+DEBUG main org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest]
+DEBUG main org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest]
+DEBUG main org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest]
+DEBUG main com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest - ===================before class======================
+DEBUG main org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest]
+DEBUG main org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest]
+DEBUG main org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[TestContext@1151000a testClass = JpaConferenceDaoImplTest, testInstance = com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest@5cd99967, testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@51e668d0 testClass = JpaConferenceDaoImplTest, locations = '{classpath:/com/hantsylabs/example/conference/config/applicationContext-jpa.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]].
+DEBUG main org.springframework.test.context.support.AbstractDelegatingSmartContextLoader - Delegating to GenericXmlContextLoader to load context from [MergedContextConfiguration@51e668d0 testClass = JpaConferenceDaoImplTest, locations = '{classpath:/com/hantsylabs/example/conference/config/applicationContext-jpa.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]].
+DEBUG main org.springframework.test.context.support.AbstractGenericContextLoader - Loading ApplicationContext for merged context configuration [[MergedContextConfiguration@51e668d0 testClass = JpaConferenceDaoImplTest, locations = '{classpath:/com/hantsylabs/example/conference/config/applicationContext-jpa.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]].
+DEBUG main org.springframework.core.env.StandardEnvironment - Initializing new StandardEnvironment
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+DEBUG main org.springframework.core.env.StandardEnvironment - Initializing new StandardEnvironment
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [com/hantsylabs/example/conference/config/applicationContext-jpa.xml]
+DEBUG main org.springframework.beans.factory.xml.DefaultDocumentLoader - Using JAXP provider [com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl]
+DEBUG main org.springframework.beans.factory.xml.PluggableSchemaResolver - Loading schema mappings from [META-INF/spring.schemas]
+DEBUG main org.springframework.beans.factory.xml.PluggableSchemaResolver - Loaded schema mappings: {http://www.springframework.org/schema/util/spring-util.xsd=org/springframework/beans/factory/xml/spring-util-3.2.xsd, http://www.springframework.org/schema/jee/spring-jee-3.2.xsd=org/springframework/ejb/config/spring-jee-3.2.xsd, http://www.springframework.org/schema/beans/spring-beans-3.1.xsd=org/springframework/beans/factory/xml/spring-beans-3.1.xsd, http://www.springframework.org/schema/task/spring-task.xsd=org/springframework/scheduling/config/spring-task-3.2.xsd, http://www.springframework.org/schema/cache/spring-cache.xsd=org/springframework/cache/config/spring-cache-3.2.xsd, http://www.springframework.org/schema/aop/spring-aop-3.0.xsd=org/springframework/aop/config/spring-aop-3.0.xsd, http://www.springframework.org/schema/aop/spring-aop-2.0.xsd=org/springframework/aop/config/spring-aop-2.0.xsd, http://www.springframework.org/schema/task/spring-task-3.1.xsd=org/springframework/scheduling/config/spring-task-3.1.xsd, http://www.springframework.org/schema/tool/spring-tool-2.5.xsd=org/springframework/beans/factory/xml/spring-tool-2.5.xsd, http://www.springframework.org/schema/beans/spring-beans.xsd=org/springframework/beans/factory/xml/spring-beans-3.2.xsd, http://www.springframework.org/schema/jee/spring-jee-2.5.xsd=org/springframework/ejb/config/spring-jee-2.5.xsd, http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd=org/springframework/jdbc/config/spring-jdbc-3.1.xsd, http://www.springframework.org/schema/tool/spring-tool-3.1.xsd=org/springframework/beans/factory/xml/spring-tool-3.1.xsd, http://www.springframework.org/schema/aop/spring-aop.xsd=org/springframework/aop/config/spring-aop-3.2.xsd, http://www.springframework.org/schema/jee/spring-jee-3.1.xsd=org/springframework/ejb/config/spring-jee-3.1.xsd, http://www.springframework.org/schema/tx/spring-tx-3.2.xsd=org/springframework/transaction/config/spring-tx-3.2.xsd, http://www.springframework.org/schema/context/spring-context-3.2.xsd=org/springframework/context/config/spring-context-3.2.xsd, http://www.springframework.org/schema/util/spring-util-3.2.xsd=org/springframework/beans/factory/xml/spring-util-3.2.xsd, http://www.springframework.org/schema/beans/spring-beans-2.0.xsd=org/springframework/beans/factory/xml/spring-beans-2.0.xsd, http://www.springframework.org/schema/lang/spring-lang-3.2.xsd=org/springframework/scripting/config/spring-lang-3.2.xsd, http://www.springframework.org/schema/beans/spring-beans-3.0.xsd=org/springframework/beans/factory/xml/spring-beans-3.0.xsd, http://www.springframework.org/schema/cache/spring-cache-3.2.xsd=org/springframework/cache/config/spring-cache-3.2.xsd, http://www.springframework.org/schema/task/spring-task-3.0.xsd=org/springframework/scheduling/config/spring-task-3.0.xsd, http://www.springframework.org/schema/tx/spring-tx-2.5.xsd=org/springframework/transaction/config/spring-tx-2.5.xsd, http://www.springframework.org/schema/context/spring-context-2.5.xsd=org/springframework/context/config/spring-context-2.5.xsd, http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd=org/springframework/jdbc/config/spring-jdbc-3.0.xsd, http://www.springframework.org/schema/tool/spring-tool-3.0.xsd=org/springframework/beans/factory/xml/spring-tool-3.0.xsd, http://www.springframework.org/schema/tx/spring-tx.xsd=org/springframework/transaction/config/spring-tx-3.2.xsd, http://www.springframework.org/schema/util/spring-util-2.5.xsd=org/springframework/beans/factory/xml/spring-util-2.5.xsd, http://www.springframework.org/schema/tool/spring-tool-2.0.xsd=org/springframework/beans/factory/xml/spring-tool-2.0.xsd, http://www.springframework.org/schema/lang/spring-lang.xsd=org/springframework/scripting/config/spring-lang-3.2.xsd, http://www.springframework.org/schema/lang/spring-lang-2.5.xsd=org/springframework/scripting/config/spring-lang-2.5.xsd, http://www.springframework.org/schema/aop/spring-aop-3.2.xsd=org/springframework/aop/config/spring-aop-3.2.xsd, http://www.springframework.org/schema/jee/spring-jee-3.0.xsd=org/springframework/ejb/config/spring-jee-3.0.xsd, http://www.springframework.org/schema/tx/spring-tx-3.1.xsd=org/springframework/transaction/config/spring-tx-3.1.xsd, http://www.springframework.org/schema/jee/spring-jee-2.0.xsd=org/springframework/ejb/config/spring-jee-2.0.xsd, http://www.springframework.org/schema/context/spring-context-3.1.xsd=org/springframework/context/config/spring-context-3.1.xsd, http://www.springframework.org/schema/util/spring-util-3.1.xsd=org/springframework/beans/factory/xml/spring-util-3.1.xsd, http://www.springframework.org/schema/lang/spring-lang-3.1.xsd=org/springframework/scripting/config/spring-lang-3.1.xsd, http://www.springframework.org/schema/cache/spring-cache-3.1.xsd=org/springframework/cache/config/spring-cache-3.1.xsd, http://www.springframework.org/schema/context/spring-context.xsd=org/springframework/context/config/spring-context-3.2.xsd, http://www.springframework.org/schema/jee/spring-jee.xsd=org/springframework/ejb/config/spring-jee-3.2.xsd, http://www.springframework.org/schema/aop/spring-aop-2.5.xsd=org/springframework/aop/config/spring-aop-2.5.xsd, http://www.springframework.org/schema/jdbc/spring-jdbc.xsd=org/springframework/jdbc/config/spring-jdbc-3.2.xsd, http://www.springframework.org/schema/beans/spring-beans-3.2.xsd=org/springframework/beans/factory/xml/spring-beans-3.2.xsd, http://www.springframework.org/schema/tx/spring-tx-2.0.xsd=org/springframework/transaction/config/spring-tx-2.0.xsd, http://www.springframework.org/schema/aop/spring-aop-3.1.xsd=org/springframework/aop/config/spring-aop-3.1.xsd, http://www.springframework.org/schema/task/spring-task-3.2.xsd=org/springframework/scheduling/config/spring-task-3.2.xsd, http://www.springframework.org/schema/tx/spring-tx-3.0.xsd=org/springframework/transaction/config/spring-tx-3.0.xsd, http://www.springframework.org/schema/context/spring-context-3.0.xsd=org/springframework/context/config/spring-context-3.0.xsd, http://www.springframework.org/schema/tool/spring-tool.xsd=org/springframework/beans/factory/xml/spring-tool-3.2.xsd, http://www.springframework.org/schema/util/spring-util-3.0.xsd=org/springframework/beans/factory/xml/spring-util-3.0.xsd, http://www.springframework.org/schema/util/spring-util-2.0.xsd=org/springframework/beans/factory/xml/spring-util-2.0.xsd, http://www.springframework.org/schema/lang/spring-lang-3.0.xsd=org/springframework/scripting/config/spring-lang-3.0.xsd, http://www.springframework.org/schema/lang/spring-lang-2.0.xsd=org/springframework/scripting/config/spring-lang-2.0.xsd, http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd=org/springframework/jdbc/config/spring-jdbc-3.2.xsd, http://www.springframework.org/schema/tool/spring-tool-3.2.xsd=org/springframework/beans/factory/xml/spring-tool-3.2.xsd, http://www.springframework.org/schema/beans/spring-beans-2.5.xsd=org/springframework/beans/factory/xml/spring-beans-2.5.xsd}
+DEBUG main org.springframework.beans.factory.xml.PluggableSchemaResolver - Found XML schema [http://www.springframework.org/schema/beans/spring-beans.xsd] in classpath: org/springframework/beans/factory/xml/spring-beans-3.2.xsd
+DEBUG main org.springframework.beans.factory.xml.PluggableSchemaResolver - Found XML schema [http://www.springframework.org/schema/jdbc/spring-jdbc.xsd] in classpath: org/springframework/jdbc/config/spring-jdbc-3.2.xsd
+DEBUG main org.springframework.beans.factory.xml.PluggableSchemaResolver - Found XML schema [http://www.springframework.org/schema/tool/spring-tool-3.2.xsd] in classpath: org/springframework/beans/factory/xml/spring-tool-3.2.xsd
+DEBUG main org.springframework.beans.factory.xml.PluggableSchemaResolver - Found XML schema [http://www.springframework.org/schema/context/spring-context.xsd] in classpath: org/springframework/context/config/spring-context-3.2.xsd
+DEBUG main org.springframework.beans.factory.xml.DefaultBeanDefinitionDocumentReader - Loading bean definitions
+DEBUG main org.springframework.beans.factory.xml.DefaultNamespaceHandlerResolver - Loaded NamespaceHandler mappings: {http://www.springframework.org/schema/p=org.springframework.beans.factory.xml.SimplePropertyNamespaceHandler, http://www.springframework.org/schema/util=org.springframework.beans.factory.xml.UtilNamespaceHandler, http://www.springframework.org/schema/jee=org.springframework.ejb.config.JeeNamespaceHandler, http://www.springframework.org/schema/aop=org.springframework.aop.config.AopNamespaceHandler, http://www.springframework.org/schema/jdbc=org.springframework.jdbc.config.JdbcNamespaceHandler, http://www.springframework.org/schema/cache=org.springframework.cache.config.CacheNamespaceHandler, http://www.springframework.org/schema/c=org.springframework.beans.factory.xml.SimpleConstructorNamespaceHandler, http://www.springframework.org/schema/tx=org.springframework.transaction.config.TxNamespaceHandler, http://www.springframework.org/schema/task=org.springframework.scheduling.config.TaskNamespaceHandler, http://www.springframework.org/schema/lang=org.springframework.scripting.config.LangNamespaceHandler, http://www.springframework.org/schema/context=org.springframework.context.config.ContextNamespaceHandler}
+INFO main org.springframework.context.annotation.ClassPathBeanDefinitionScanner - JSR-330 'javax.inject.Named' annotation found and supported for component scanning
+DEBUG main org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao]
+DEBUG main org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao] for files matching pattern [E:/MyWorks/hantsy-labs/conference/snippets/jpa/target/test-classes/com/hantsylabs/example/conference/dao/**/*.class]
+DEBUG main org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\classes\com\hantsylabs\example\conference\dao]
+DEBUG main org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\classes\com\hantsylabs\example\conference\dao] for files matching pattern [E:/MyWorks/hantsy-labs/conference/snippets/jpa/target/classes/com/hantsylabs/example/conference/dao/**/*.class]
+DEBUG main org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved location pattern [classpath*:com/hantsylabs/example/conference/dao/**/*.class] to resources [file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\AnnotationConfigHibernate4ConferenceDaoImplTest$AjcClosure1.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\AnnotationConfigHibernate4ConferenceDaoImplTest$AjcClosure3.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\AnnotationConfigHibernate4ConferenceDaoImplTest$AjcClosure5.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\AnnotationConfigHibernate4ConferenceDaoImplTest$AjcClosure7.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\AnnotationConfigHibernate4ConferenceDaoImplTest$AjcClosure9.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\AnnotationConfigHibernate4ConferenceDaoImplTest.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\AnnotationConfigJpaConferenceDaoImplTest$AjcClosure1.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\AnnotationConfigJpaConferenceDaoImplTest$AjcClosure3.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\AnnotationConfigJpaConferenceDaoImplTest$AjcClosure5.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\AnnotationConfigJpaConferenceDaoImplTest$AjcClosure7.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\AnnotationConfigJpaConferenceDaoImplTest$AjcClosure9.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\AnnotationConfigJpaConferenceDaoImplTest.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\Hibernate4ConferenceDaoImplTest$AjcClosure1.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\Hibernate4ConferenceDaoImplTest$AjcClosure3.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\Hibernate4ConferenceDaoImplTest$AjcClosure5.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\Hibernate4ConferenceDaoImplTest$AjcClosure7.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\Hibernate4ConferenceDaoImplTest$AjcClosure9.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\Hibernate4ConferenceDaoImplTest.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\JpaConferenceDaoImplTest$AjcClosure1.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\JpaConferenceDaoImplTest$AjcClosure3.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\JpaConferenceDaoImplTest$AjcClosure5.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\JpaConferenceDaoImplTest$AjcClosure7.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\JpaConferenceDaoImplTest$AjcClosure9.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\test-classes\com\hantsylabs\example\conference\dao\JpaConferenceDaoImplTest.class], file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\classes\com\hantsylabs\example\conference\dao\ConferenceDao.class]]
+DEBUG main org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\classes\com\hantsylabs\example\conference\jpa]
+DEBUG main org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\classes\com\hantsylabs\example\conference\jpa] for files matching pattern [E:/MyWorks/hantsy-labs/conference/snippets/jpa/target/classes/com/hantsylabs/example/conference/jpa/**/*.class]
+DEBUG main org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved location pattern [classpath*:com/hantsylabs/example/conference/jpa/**/*.class] to resources [file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\classes\com\hantsylabs\example\conference\jpa\JpaConferenceDaoImpl.class]]
+DEBUG main org.springframework.context.annotation.ClassPathBeanDefinitionScanner - Identified candidate component class: file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\classes\com\hantsylabs\example\conference\jpa\JpaConferenceDaoImpl.class]
+DEBUG main org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loaded 9 bean definitions from location pattern [classpath:/com/hantsylabs/example/conference/config/applicationContext-jpa.xml]
+INFO main org.springframework.context.support.GenericApplicationContext - Refreshing org.springframework.context.support.GenericApplicationContext@1268c278: startup date [Fri May 10 23:28:21 CST 2013]; root of context hierarchy
+DEBUG main org.springframework.context.support.GenericApplicationContext - Bean factory for org.springframework.context.support.GenericApplicationContext@1268c278: org.springframework.beans.factory.support.DefaultListableBeanFactory@71bab54a: defining beans [dataSource,entityManagerFactory,transactionManager,jpaConferenceDaoImpl,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor]; root of factory hierarchy
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor' to allow for resolving potential circular references
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor' to allow for resolving potential circular references
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor' to allow for resolving potential circular references
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.context.annotation.internalRequiredAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor' to allow for resolving potential circular references
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalPersistenceAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.context.annotation.internalPersistenceAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'org.springframework.context.annotation.internalPersistenceAnnotationProcessor' to allow for resolving potential circular references
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.context.annotation.internalPersistenceAnnotationProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor' to allow for resolving potential circular references
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor'
+DEBUG main org.springframework.context.support.GenericApplicationContext - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@176e5419]
+DEBUG main org.springframework.context.support.GenericApplicationContext - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@3cb3600d]
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'entityManagerFactory'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'entityManagerFactory'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'entityManagerFactory' to allow for resolving potential circular references
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'dataSource'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating instance of bean 'dataSource'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Eagerly caching bean 'dataSource' to allow for resolving potential circular references
+DEBUG main org.springframework.core.env.StandardEnvironment - Initializing new StandardEnvironment
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+DEBUG main org.springframework.core.env.StandardEnvironment - Initializing new StandardEnvironment
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+DEBUG main org.springframework.core.env.StandardEnvironment - Initializing new StandardEnvironment
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+DEBUG main org.springframework.core.env.StandardEnvironment - Initializing new StandardEnvironment
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+DEBUG main org.springframework.core.env.StandardEnvironment - Initializing new StandardEnvironment
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+DEBUG main org.springframework.beans.BeanUtils - No property editor [org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseTypeEditor] found for type org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType according to 'Editor' suffix convention
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name 'dataSource'
+INFO main org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory - Creating embedded database 'dataSource'
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Finished creating instance of bean 'dataSource'
+DEBUG main org.springframework.core.env.StandardEnvironment - Initializing new StandardEnvironment
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+DEBUG main org.springframework.core.env.StandardEnvironment - Initializing new StandardEnvironment
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+DEBUG main org.springframework.core.env.StandardEnvironment - Initializing new StandardEnvironment
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+DEBUG main org.springframework.core.env.StandardEnvironment - Initializing new StandardEnvironment
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+DEBUG main org.springframework.core.env.StandardEnvironment - Initializing new StandardEnvironment
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+DEBUG main org.springframework.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Invoking afterPropertiesSet() on bean with name 'entityManagerFactory'
+DEBUG main org.springframework.core.io.support.PathMatchingResourcePatternResolver - Looking for matching resources in directory tree [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\classes\com\hantsylabs\example\conference\model]
+DEBUG main org.springframework.core.io.support.PathMatchingResourcePatternResolver - Searching directory [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\classes\com\hantsylabs\example\conference\model] for files matching pattern [E:/MyWorks/hantsy-labs/conference/snippets/jpa/target/classes/com/hantsylabs/example/conference/model/**/*.class]
+DEBUG main org.springframework.core.io.support.PathMatchingResourcePatternResolver - Resolved location pattern [classpath*:com/hantsylabs/example/conference/model/**/*.class] to resources [file [E:\MyWorks\hantsy-labs\conference\snippets\jpa\target\classes\com\hantsylabs\example\conference\model\Conference.class]]
+INFO main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'persistenceUnit'
+DEBUG main org.jboss.logging - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@24ac5a9a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@24ac5a9a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@24ac5a9a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@790bc5c9
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration true_false -> org.hibernate.type.TrueFalseType@39cab80e
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration yes_no -> org.hibernate.type.YesNoType@2c17277b
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@70439942
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@70439942
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@70439942
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration character -> org.hibernate.type.CharacterType@36ff208a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration char -> org.hibernate.type.CharacterType@36ff208a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@36ff208a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@7a8057b6
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@7a8057b6
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Short -> org.hibernate.type.ShortType@7a8057b6
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration integer -> org.hibernate.type.IntegerType@67dc1e2
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration int -> org.hibernate.type.IntegerType@67dc1e2
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@67dc1e2
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@684c5482
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@684c5482
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Long -> org.hibernate.type.LongType@684c5482
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@68c0ec3
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@68c0ec3
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Float -> org.hibernate.type.FloatType@68c0ec3
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@72be6280
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@72be6280
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@72be6280
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@2acb4636
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@2acb4636
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration big_integer -> org.hibernate.type.BigIntegerType@5b973e81
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@5b973e81
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration string -> org.hibernate.type.StringType@335b3e8c
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.String -> org.hibernate.type.StringType@335b3e8c
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration url -> org.hibernate.type.UrlType@2625e90a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.net.URL -> org.hibernate.type.UrlType@2625e90a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration date -> org.hibernate.type.DateType@756bb9f7
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Date -> org.hibernate.type.DateType@756bb9f7
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration time -> org.hibernate.type.TimeType@263bb672
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Time -> org.hibernate.type.TimeType@263bb672
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration timestamp -> org.hibernate.type.TimestampType@5034ce92
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@5034ce92
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Date -> org.hibernate.type.TimestampType@5034ce92
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@6d0bade
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration calendar -> org.hibernate.type.CalendarType@34b18c9a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@34b18c9a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@34b18c9a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@5cc5450c
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration locale -> org.hibernate.type.LocaleType@529ad1e0
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@529ad1e0
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration currency -> org.hibernate.type.CurrencyType@2f1467f3
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@2f1467f3
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration timezone -> org.hibernate.type.TimeZoneType@2c64757f
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@2c64757f
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration class -> org.hibernate.type.ClassType@5051a0c9
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Class -> org.hibernate.type.ClassType@5051a0c9
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@3669813
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@3669813
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@3172cef6
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration pg-uuid -> org.hibernate.type.PostgresUUIDType@51cb8280
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration binary -> org.hibernate.type.BinaryType@30d7bea1
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration byte[] -> org.hibernate.type.BinaryType@30d7bea1
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration [B -> org.hibernate.type.BinaryType@30d7bea1
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@7fa6422a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@7fa6422a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@7fa6422a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration image -> org.hibernate.type.ImageType@6c906704
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration characters -> org.hibernate.type.CharArrayType@6065ffeb
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration char[] -> org.hibernate.type.CharArrayType@6065ffeb
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration [C -> org.hibernate.type.CharArrayType@6065ffeb
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@7e229394
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@7e229394
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@7e229394
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration text -> org.hibernate.type.TextType@476a7942
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration blob -> org.hibernate.type.BlobType@13a2ffb7
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@13a2ffb7
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@160ee454
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration clob -> org.hibernate.type.ClobType@13e7748c
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@13e7748c
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@193ff426
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration serializable -> org.hibernate.type.SerializableType@389cc5c2
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration object -> org.hibernate.type.ObjectType@61675e00
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@61675e00
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@7c9a2f1a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@6e8a93de
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@4bf20c84
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@13d510
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@16090d7a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@2c53cfe3
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@327556d1
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@3596cd38
+INFO main org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {4.0.1.Final}
+INFO main org.hibernate.Version - HHH000412: Hibernate Core {4.1.9.Final}
+INFO main org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+INFO main org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid2] -> [org.hibernate.id.UUIDGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [guid] -> [org.hibernate.id.GUIDGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid] -> [org.hibernate.id.UUIDHexGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid.hex] -> [org.hibernate.id.UUIDHexGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [hilo] -> [org.hibernate.id.TableHiLoGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [assigned] -> [org.hibernate.id.Assigned]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [identity] -> [org.hibernate.id.IdentityGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [select] -> [org.hibernate.id.SelectGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [sequence] -> [org.hibernate.id.SequenceGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [seqhilo] -> [org.hibernate.id.SequenceHiLoGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [increment] -> [org.hibernate.id.IncrementGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [foreign] -> [org.hibernate.id.ForeignGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [sequence-identity] -> [org.hibernate.id.SequenceIdentityGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [enhanced-sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [enhanced-table] -> [org.hibernate.id.enhanced.TableGenerator]
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@24ac5a9a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@24ac5a9a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@24ac5a9a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@790bc5c9
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration true_false -> org.hibernate.type.TrueFalseType@39cab80e
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration yes_no -> org.hibernate.type.YesNoType@2c17277b
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@70439942
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@70439942
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@70439942
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration character -> org.hibernate.type.CharacterType@36ff208a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration char -> org.hibernate.type.CharacterType@36ff208a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@36ff208a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@7a8057b6
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@7a8057b6
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Short -> org.hibernate.type.ShortType@7a8057b6
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration integer -> org.hibernate.type.IntegerType@67dc1e2
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration int -> org.hibernate.type.IntegerType@67dc1e2
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@67dc1e2
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@684c5482
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@684c5482
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Long -> org.hibernate.type.LongType@684c5482
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@68c0ec3
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@68c0ec3
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Float -> org.hibernate.type.FloatType@68c0ec3
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@72be6280
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@72be6280
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@72be6280
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@2acb4636
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@2acb4636
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration big_integer -> org.hibernate.type.BigIntegerType@5b973e81
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@5b973e81
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration string -> org.hibernate.type.StringType@335b3e8c
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.String -> org.hibernate.type.StringType@335b3e8c
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration url -> org.hibernate.type.UrlType@2625e90a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.net.URL -> org.hibernate.type.UrlType@2625e90a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration date -> org.hibernate.type.DateType@756bb9f7
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Date -> org.hibernate.type.DateType@756bb9f7
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration time -> org.hibernate.type.TimeType@263bb672
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Time -> org.hibernate.type.TimeType@263bb672
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration timestamp -> org.hibernate.type.TimestampType@5034ce92
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@5034ce92
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Date -> org.hibernate.type.TimestampType@5034ce92
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@6d0bade
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration calendar -> org.hibernate.type.CalendarType@34b18c9a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@34b18c9a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@34b18c9a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@5cc5450c
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration locale -> org.hibernate.type.LocaleType@529ad1e0
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@529ad1e0
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration currency -> org.hibernate.type.CurrencyType@2f1467f3
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@2f1467f3
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration timezone -> org.hibernate.type.TimeZoneType@2c64757f
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@2c64757f
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration class -> org.hibernate.type.ClassType@5051a0c9
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Class -> org.hibernate.type.ClassType@5051a0c9
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@3669813
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@3669813
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@3172cef6
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration pg-uuid -> org.hibernate.type.PostgresUUIDType@51cb8280
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration binary -> org.hibernate.type.BinaryType@30d7bea1
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration byte[] -> org.hibernate.type.BinaryType@30d7bea1
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration [B -> org.hibernate.type.BinaryType@30d7bea1
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@7fa6422a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@7fa6422a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@7fa6422a
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration image -> org.hibernate.type.ImageType@6c906704
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration characters -> org.hibernate.type.CharArrayType@6065ffeb
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration char[] -> org.hibernate.type.CharArrayType@6065ffeb
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration [C -> org.hibernate.type.CharArrayType@6065ffeb
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@7e229394
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@7e229394
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@7e229394
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration text -> org.hibernate.type.TextType@476a7942
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration blob -> org.hibernate.type.BlobType@13a2ffb7
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@13a2ffb7
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@160ee454
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration clob -> org.hibernate.type.ClobType@13e7748c
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@13e7748c
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@193ff426
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration serializable -> org.hibernate.type.SerializableType@389cc5c2
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration object -> org.hibernate.type.ObjectType@61675e00
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@61675e00
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@26e44c79
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@5658afe1
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@58830910
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@2c826d6
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@226dad07
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@4e7ab839
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@5ad4ce6f
+DEBUG main org.hibernate.type.BasicTypeRegistry - Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@493d07ff
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid2] -> [org.hibernate.id.UUIDGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [guid] -> [org.hibernate.id.GUIDGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid] -> [org.hibernate.id.UUIDHexGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid.hex] -> [org.hibernate.id.UUIDHexGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [hilo] -> [org.hibernate.id.TableHiLoGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [assigned] -> [org.hibernate.id.Assigned]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [identity] -> [org.hibernate.id.IdentityGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [select] -> [org.hibernate.id.SelectGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [sequence] -> [org.hibernate.id.SequenceGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [seqhilo] -> [org.hibernate.id.SequenceHiLoGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [increment] -> [org.hibernate.id.IncrementGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [foreign] -> [org.hibernate.id.ForeignGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [sequence-identity] -> [org.hibernate.id.SequenceIdentityGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [enhanced-sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+DEBUG main org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [enhanced-table] -> [org.hibernate.id.enhanced.TableGenerator]
+DEBUG main org.hibernate.ejb.Ejb3Configuration - Processing PersistenceUnitInfo [
+	name: persistenceUnit
+	persistence provider classname: null
+	classloader: sun.misc.Launcher$AppClassLoader@99c873d
+	Temporary classloader: org.springframework.instrument.classloading.SimpleThrowawayClassLoader@1e956567
+	excludeUnlistedClasses: true
+	JTA datasource: null
+	Non JTA datasource: org.springframework.jdbc.datasource.SimpleDriverDataSource@62345ce0
+	Transaction type: RESOURCE_LOCAL
+	PU root URL: file:/E:/MyWorks/hantsy-labs/conference/snippets/jpa/target/test-classes/
+	Shared Cache Mode: UNSPECIFIED
+	Validation Mode: AUTO
+	Jar files URLs []
+	Managed classes names [
+		com.hantsylabs.example.conference.model.Conference]
+	Mapping files names []
+	Properties []
+DEBUG main org.hibernate.ejb.Ejb3Configuration - Detect class: true; detect hbm: true
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Searching mapped entities in jar/par: file:/E:/MyWorks/hantsy-labs/conference/snippets/jpa/target/test-classes/
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.AnnotationConfigHibernate4ConferenceDaoImplTest$AjcClosure1
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.AnnotationConfigHibernate4ConferenceDaoImplTest$AjcClosure3
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.AnnotationConfigHibernate4ConferenceDaoImplTest$AjcClosure5
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.AnnotationConfigHibernate4ConferenceDaoImplTest$AjcClosure7
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.AnnotationConfigHibernate4ConferenceDaoImplTest$AjcClosure9
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.AnnotationConfigHibernate4ConferenceDaoImplTest
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.AnnotationConfigJpaConferenceDaoImplTest$AjcClosure1
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.AnnotationConfigJpaConferenceDaoImplTest$AjcClosure3
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.AnnotationConfigJpaConferenceDaoImplTest$AjcClosure5
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.AnnotationConfigJpaConferenceDaoImplTest$AjcClosure7
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.AnnotationConfigJpaConferenceDaoImplTest$AjcClosure9
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.AnnotationConfigJpaConferenceDaoImplTest
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest$AjcClosure1
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest$AjcClosure3
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest$AjcClosure5
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest$AjcClosure7
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest$AjcClosure9
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.Hibernate4ConferenceDaoImplTest
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest$AjcClosure1
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest$AjcClosure3
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest$AjcClosure5
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest$AjcClosure7
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest$AjcClosure9
+DEBUG main org.hibernate.ejb.packaging.AbstractJarVisitor - Filtering: com.hantsylabs.example.conference.dao.JpaConferenceDaoImplTest
+DEBUG main org.hibernate.integrator.internal.IntegratorServiceImpl - Adding Integrator [org.hibernate.cfg.beanvalidation.BeanValidationIntegrator].
+DEBUG main org.hibernate.integrator.internal.IntegratorServiceImpl - Adding Integrator [org.hibernate.ejb.event.JpaIntegrator].
+DEBUG main org.hibernate.ejb.util.NamingHelper - No JNDI name configured for binding Ejb3Configuration
+DEBUG main org.hibernate.cfg.Configuration - Preparing to build session factory with filters : {}
+DEBUG main org.hibernate.cfg.Configuration - Processing hbm.xml files
+DEBUG main org.hibernate.cfg.Configuration - Process annotated classes
+DEBUG main org.hibernate.cfg.AnnotationBinder - Binding entity from annotated class: com.hantsylabs.example.conference.model.Conference
+DEBUG main org.hibernate.cfg.Ejb3Column - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'}
+DEBUG main org.hibernate.cfg.annotations.EntityBinder - Import with entity name Conference
+DEBUG main org.hibernate.cfg.annotations.EntityBinder - Bind entity com.hantsylabs.example.conference.model.Conference on table Conference
+DEBUG main org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Conference), mappingColumn=id, insertable=true, updatable=true, unique=false}
+DEBUG main org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property id with lazy=false
+DEBUG main org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for id
+DEBUG main org.hibernate.cfg.annotations.PropertyBinder - Building property id
+DEBUG main org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Conference), mappingColumn=description, insertable=true, updatable=true, unique=false}
+DEBUG main org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property description with lazy=false
+DEBUG main org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for description
+DEBUG main org.hibernate.cfg.annotations.PropertyBinder - Building property description
+DEBUG main org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Conference), mappingColumn=ended_date, insertable=true, updatable=true, unique=false}
+DEBUG main org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property endedDate with lazy=false
+DEBUG main org.hibernate.cfg.annotations.SimpleValueBinder - building SimpleValue for endedDate
+DEBUG main org.hibernate.cfg.annotations.PropertyBinder - Building property endedDate
+DEBUG main org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(Conference), mappingColumn=name, insertable=true, updatable=true, unique=false}
+DEBUG main org.hibernate.cfg.annotations.PropertyBinder - MetadataSourceProcessor property name with lazy=false

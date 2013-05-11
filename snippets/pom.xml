@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>conference-snippets-parent</artifactId>
+	<packaging>pom</packaging>
+	<name>conference-snippets-parent</name>
+	<parent>
+		<groupId>com.hantsylabs.example.conference</groupId>
+		<artifactId>conference-parent</artifactId>
+		<version>0.1.0.BUILD-SNAPSHOT</version>
+		<relativePath>../</relativePath>
+	</parent>
+	<modules>
+	<module>conference-dao-snippets</module>
+	<module>conference-data-crossstore-snippets</module>
+	<module>conference-data-jpa-snippets</module>
+	<module>conference-data-mongo-snippets</module>
+	<module>conference-jpa-snippets</module>
+	</modules>
+</project>
