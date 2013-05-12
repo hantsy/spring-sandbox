@@ -16,9 +16,8 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan(basePackages = { "com.hantsylabs.example.conference.dao",
-		"com.hantsylabs.example.conference.jpa" } )
-@EnableJpaRepositories(basePackages = { "com.hantsylabs.example.conference.repository" })
+@ComponentScan(basePackages = { "com.hantsylabs.example.conference.jpa" } )
+@EnableJpaRepositories(basePackages = { "com.hantsylabs.example.conference.jpa" })
 @EnableTransactionManagement
 public class JpaConfig {
 

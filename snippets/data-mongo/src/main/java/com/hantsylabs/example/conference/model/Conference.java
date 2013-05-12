@@ -6,12 +6,15 @@ import javax.validation.constraints.NotNull;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
+
+@Document
 public class Conference {
 
 	@org.springframework.data.annotation.Id
-	private Long id;
+	private String id;
 
 	@org.springframework.data.annotation.Version
 	private Integer version;
@@ -32,6 +35,8 @@ public class Conference {
 
 	@NotNull
 	private String slug;
+	
+	private Address address;
 
 	public String getName() {
 		return this.name;
@@ -39,6 +44,14 @@ public class Conference {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	public String getDescription() {
@@ -79,11 +92,11 @@ public class Conference {
 				ToStringStyle.SHORT_PREFIX_STYLE);
 	}
 
-	public Long getId() {
-		return this.id;
+	public String getId() {
+		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

@@ -7,7 +7,11 @@ import org.springframework.stereotype.Repository;
 import com.hantsylabs.example.conference.model.Conference;
 
 @Repository
-public interface ConferenceRepository extends MongoRepository<Conference, String>,
-		QueryDslPredicateExecutor<Conference> {
+public interface ConferenceRepository extends MongoRepository<Conference, String>
+,		QueryDslPredicateExecutor<Conference> 
+{
+	
+	public Conference findBySlug(String slug);
 
+	public Conference findByAddressCountry(String country);
 }

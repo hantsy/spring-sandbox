@@ -51,9 +51,8 @@ public class Conference {
 
 	@NotNull
 	private String slug;
-
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "conference")
-	private Set<Signup> signups = new HashSet<Signup>();
+	
+	private Address address;
 
 	public String getName() {
 		return this.name;
@@ -95,12 +94,13 @@ public class Conference {
 		this.slug = slug;
 	}
 
-	public Set<Signup> getSignups() {
-		return this.signups;
+
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setSignups(Set<Signup> signups) {
-		this.signups = signups;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	@Override
@@ -125,10 +125,4 @@ public class Conference {
 		this.version = version;
 	}
 
-	public void addSignup(Signup signup) {
-		if (!this.signups.contains(signup)) {
-			signups.add(signup);
-			signup.setConference(this);
-		}
-	}
 }

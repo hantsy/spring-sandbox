@@ -9,15 +9,19 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hibernate.validator.constraints.Email;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Version;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
+@Document
 public class Signup {
 
 	@Id
 	private String id;
 
-	@org.springframework.data.annotation.Version
+	@Version
 	private Integer version;
 
 	@NotNull
@@ -44,6 +48,7 @@ public class Signup {
 	private Date createdDate;
 
 	@DBRef
+	@Indexed
 	private Conference conference;
 
 	private Status status;

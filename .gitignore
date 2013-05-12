@@ -4,7 +4,7 @@
 *.jar
 *.war
 *.ear
-/application.log
+*.log
 
 /log.roo
 
