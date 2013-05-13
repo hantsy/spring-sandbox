@@ -19,16 +19,22 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.hantsylabs.example.conference.jpa.ConferenceRepository;
-import com.hantsylabs.example.conference.jpa.spec.JpaPredicates;
+import com.hantsylabs.example.conference.jpa.spec.JpaSpecs;
 import com.hantsylabs.example.conference.jpa.spec.QueryDslPredicates;
 import com.hantsylabs.example.conference.model.Address;
 import com.hantsylabs.example.conference.model.Conference;
+import com.hantsylabs.example.conference.model.QConference;
+import com.hantsylabs.example.conference.model.Signup;
+import com.hantsylabs.example.conference.model.Status;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:/com/hantsylabs/example/conference/config/applicationContext-jpa.xml")
+@TransactionConfiguration()
 public class ConferencRepositoryImplTest {
 	private static final Logger log = LoggerFactory
 			.getLogger(ConferencRepositoryImplTest.class);
@@ -72,6 +78,22 @@ public class ConferencRepositoryImplTest {
 		address.setZipCode("510000");
 
 		return address;
+	}
+
+	private Signup newSignup() {
+		Signup signup = new Signup();
+
+		signup.setComment("test comments");
+		signup.setCompany("TestCompany");
+		signup.setCreatedDate(new Date());
+		signup.setEmail("test@test.com");
+		signup.setFirstName("Hantsy");
+		signup.setLastName("Bai");
+		signup.setOccupation("Developer");
+		signup.setPhone("123 222 444");
+		signup.setStatus(Status.PENDING);
+
+		return signup;
 	}
 
 	@BeforeClass
@@ -132,6 +154,77 @@ public class ConferencRepositoryImplTest {
 
 	@Test
 	@Transactional
+	public void retrieveConferenceQueryDSL() {
+		Conference conference = newConference();
+		conference.setSlug("test-jud");
+		conference.setName("Test JUD");
+		conference.getAddress().setCountry("US");
+
+		conference.addSignup(newSignup());
+		conference = conferenceRepository.save(conference);
+		em.flush();
+
+		assertTrue(null != conference.getId());
+
+		conference = conferenceRepository.findBySlug("test-jud");
+		assertTrue(null != conference);
+
+		List<Conference> confs = (List<Conference>) conferenceRepository
+				.findAll(QConference.conference.address.country.eq("US"));
+		assertTrue(!confs.isEmpty());
+
+		confs = (List<Conference>) conferenceRepository
+				.findAll(QConference.conference.name.eq("Test JUD"));
+		assertTrue(!confs.isEmpty());
+
+		confs = (List<Conference>) conferenceRepository
+				.findAll(QConference.conference.description.contains("Boston"));
+		assertTrue(!confs.isEmpty());
+
+		confs = (List<Conference>) conferenceRepository
+				.findAll(QConference.conference.signups.any().email
+						.eq("test@test.com"));
+		assertTrue(!confs.isEmpty());
+		
+		confs = (List<Conference>) conferenceRepository
+				.findAll(QConference.conference.signups.any().email
+						.eq("test@test.com123"));
+		assertTrue(confs.isEmpty());
+	}
+
+	@Test
+	@Transactional(propagation = Propagation.REQUIRED)
+	public void updateConference() {
+		Conference conference = newConference();
+		conference.setSlug("test-jud");
+		conference.setName("Test JUD");
+		conference.getAddress().setCountry("US");
+		conference = conferenceRepository.save(conference);
+		em.flush();
+		em.clear();
+
+		Long id = conference.getId();
+
+		log.debug("saved conference id @" + id);
+		assertTrue(null != id);
+
+		try {
+
+			conferenceRepository.modifyConferenceDescrition("Mydesc", id);
+			em.flush();em.clear();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		Conference conf = conferenceRepository.findOne(id);
+		log.debug("updated conference @" + conf);
+
+		assertTrue("Mydesc".equals(conf.getDescription()));
+
+	}
+
+	@Test
+	@Transactional
 	public void retrieveConferenceByDate() {
 		Conference conference = newConference();
 
@@ -181,19 +274,17 @@ public class ConferencRepositoryImplTest {
 		conference = conferenceRepository.save(conference);
 		em.flush();
 
-		List<Conference> confs = conferenceRepository
-				.findAll(JpaPredicates.inProgressConferences());
+		List<Conference> confs = conferenceRepository.findAll(JpaSpecs
+				.inProgressConferences());
 		assertTrue(confs.size() == 1);
 
-		confs = conferenceRepository.findAll(JpaPredicates.pastConferences(null));
+		confs = conferenceRepository.findAll(JpaSpecs.pastConferences(null));
 		assertTrue(confs.size() == 1);
-		
-		confs = conferenceRepository.findAll(JpaPredicates.upcomingConferences());
+
+		confs = conferenceRepository.findAll(JpaSpecs.upcomingConferences());
 		assertTrue(confs.size() == 2);
 	}
 
-	
-	
 	@Test
 	@Transactional
 	public void retrieveConferenceByDateQueryDSL() {
@@ -249,10 +340,12 @@ public class ConferencRepositoryImplTest {
 				.findAll(QueryDslPredicates.inProgressConferences());
 		assertTrue(confs.size() == 1);
 
-		confs = (List<Conference>) conferenceRepository.findAll(QueryDslPredicates.pastConferences(null));
+		confs = (List<Conference>) conferenceRepository
+				.findAll(QueryDslPredicates.pastConferences(null));
 		assertTrue(confs.size() == 1);
-		
-		confs = (List<Conference>) conferenceRepository.findAll(QueryDslPredicates.upcomingConferences());
+
+		confs = (List<Conference>) conferenceRepository
+				.findAll(QueryDslPredicates.upcomingConferences());
 		assertTrue(confs.size() == 2);
 	}
 

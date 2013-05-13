@@ -2,22 +2,28 @@ package com.hantsylabs.example.conference.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hibernate.validator.constraints.Email;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Version;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
-@Document
+@Entity
 public class Signup {
 
 	@Id
-	private String id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	private Long id;
 
 	@Version
 	private Integer version;
@@ -45,8 +51,8 @@ public class Signup {
 	@DateTimeFormat(style = "M-")
 	private Date createdDate;
 
-//	@DBRef
-//	private Conference conference;
+	@ManyToOne()
+	private Conference conference;
 
 	private Status status;
 
@@ -56,13 +62,19 @@ public class Signup {
 				ToStringStyle.SHORT_PREFIX_STYLE);
 	}
 
-	public String getId() {
-		return this.id;
+
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setId(String id) {
+
+
+	public void setId(Long id) {
 		this.id = id;
 	}
+
+
 
 	public Integer getVersion() {
 		return this.version;
@@ -136,13 +148,13 @@ public class Signup {
 		this.createdDate = createdDate;
 	}
 
-//	public Conference getConference() {
-//		return this.conference;
-//	}
-//
-//	public void setConference(Conference conference) {
-//		this.conference = conference;
-//	}
+	public Conference getConference() {
+		return this.conference;
+	}
+
+	public void setConference(Conference conference) {
+		this.conference = conference;
+	}
 
 	public Status getStatus() {
 		return this.status;
@@ -150,5 +162,34 @@ public class Signup {
 
 	public void setStatus(Status status) {
 		this.status = status;
+	}
+
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		return result;
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Signup other = (Signup) obj;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		return true;
 	}
 }

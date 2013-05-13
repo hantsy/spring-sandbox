@@ -4,27 +4,24 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.crossstore.RelatedDocument;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@NamedQuery(name = "Conference.searchByMyNamedQuery", query = "from Conference where name=?")
 public class Conference {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -53,9 +50,13 @@ public class Conference {
 
 	@NotNull
 	private String slug;
-
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "conference")
+	
 	@RelatedDocument
+	@Transient
+	private Contact contact;
+
+	@RelatedDocument
+	@Transient
 	private Set<Signup> signups = new HashSet<Signup>();
 
 	public String getName() {
@@ -128,10 +129,18 @@ public class Conference {
 		this.version = version;
 	}
 
+	public Contact getContact() {
+		return contact;
+	}
+
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
+
 	public void addSignup(Signup signup) {
 		if (!this.signups.contains(signup)) {
 			signups.add(signup);
-			signup.setConference(this);
+			//signup.setConference(this);
 		}
 	}
 }

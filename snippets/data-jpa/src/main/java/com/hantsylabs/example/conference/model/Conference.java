@@ -53,6 +53,9 @@ public class Conference {
 	private String slug;
 	
 	private Address address;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "conference")
+	private Set<Signup> signups = new HashSet<Signup>();
 
 	public String getName() {
 		return this.name;
@@ -123,6 +126,21 @@ public class Conference {
 
 	public void setVersion(Integer version) {
 		this.version = version;
+	}
+
+	public Set<Signup> getSignups() {
+		return signups;
+	}
+
+	public void setSignups(Set<Signup> signups) {
+		this.signups = signups;
+	}
+
+	public void addSignup(Signup newSignup) {
+		if(!signups.contains(newSignup)){
+			this.signups.add(newSignup);
+			newSignup.setConference(this);
+		}
 	}
 
 }

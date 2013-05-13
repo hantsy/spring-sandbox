@@ -15,6 +15,7 @@
 	</bean>
 
 	<bean class="org.springframework.data.mongodb.core.MongoExceptionTranslator" />
+	
 	<bean
 		class="org.springframework.data.mongodb.core.mapping.event.LoggingEventListener" />
 

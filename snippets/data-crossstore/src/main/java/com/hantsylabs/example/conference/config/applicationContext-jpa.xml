@@ -41,10 +41,6 @@
 	</bean>
 	
 	<tx:annotation-driven />
-
-	<context:component-scan
-		base-package="com.hantsylabs.example.conference.jpa">
-	</context:component-scan>
 	
 	<jpa:repositories base-package="com.hantsylabs.example.conference.jpa"></jpa:repositories>
 </beans>

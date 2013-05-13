@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -37,6 +38,9 @@ public class ConferencRepositoryImplTest {
 
 	@Autowired
 	private SignupRepository signupRepository;
+
+	@Autowired
+	MongoTemplate mongoTemplate;
 
 	private Conference newConference() {
 		Conference conf = new Conference();
@@ -112,18 +116,30 @@ public class ConferencRepositoryImplTest {
 		Conference conference = newConference();
 		conference.setSlug("test-jud");
 		conference.setName("Test JUD");
-
+		conference.getAddress().setCountry("US");
 		conference = conferenceRepository.save(conference);
 
 		assertTrue(null != conference.getId());
 
 		conference = conferenceRepository.findBySlug("test-jud");
 		assertTrue(null != conference);
-		
-		
-		conference = conferenceRepository.findByAddressCountry("CN");
-		log.debug("findByAddressCountry@"+conference);
-		assertTrue(null != conference);
+
+		List<Conference> confs = conferenceRepository
+				.findByAddressCountry("CN");
+		log.debug("findByAddressCountry@" + confs.size());
+		assertTrue(1 == confs.size());
+
+		confs = conferenceRepository.searchByDescription("Boston");
+		log.debug("searchByDescription@" + confs.size());
+		assertTrue(2 == confs.size());
+
+		confs = conferenceRepository.findByDescriptionLike("Boston");
+		log.debug("findByDescriptionLike@" + confs.size());
+		assertTrue(2 == confs.size());
+
+		confs = conferenceRepository.findByDescriptionRegex(".*Boston.*");
+		log.debug("findByDescriptionRegex@" + confs.size());
+		assertTrue(2 == confs.size());
 
 		Signup signup = newSignup();
 		signup.setConference(conference);
@@ -149,54 +165,81 @@ public class ConferencRepositoryImplTest {
 	}
 
 	@Test
+	public void updateConference() {
+		Conference conference = newConference();
+		conference.setSlug("test-jud");
+		conference.setName("Test JUD");
+		conference.getAddress().setCountry("US");
+		conference = conferenceRepository.save(conference);
+
+		String cid = conference.getId();
+
+		log.debug("saved conference id@" + cid);
+		assertTrue(null != cid);
+
+		conference = conferenceRepository.findBySlug("test-jud");
+		assertTrue(null != conference);
+
+		conferenceRepository.updateConferenceDescription("MyDesc", cid);
+
+		Conference conf=conferenceRepository.findOne(cid);
+		
+		assertTrue("MyDesc".equals(conf.getDescription()));
+
+	}
+
+	@Test
 	public void retrieveConferenceByQueryDSL() {
 		Conference conference = newConference();
 		conference.setSlug("test-jud");
 		conference.setName("Test JUD");
-
+		conference.getAddress().setCountry("US");
 		conference = conferenceRepository.save(conference);
 		log.debug("conference @" + conference);
+		String cid = conference.getId();
 
-		assertTrue(null != conference.getId());
+		log.debug("saved conference id @" + cid);
+		assertTrue(null != cid);
 
 		QConference qconf = QConference.conference;
 		List<Conference> conferences = (List<Conference>) conferenceRepository
 				.findAll(qconf.slug.eq("test-jud"));
+		log.debug("conferences.size()@" + conferences.size());
 		assertTrue(1 == conferences.size());
 
 		List<Conference> conferences2 = (List<Conference>) conferenceRepository
-				.findAll(qconf.address.country.eq("CN"));
+				.findAll(QConference.conference.address.country.eq("CN"));
+		log.debug("conferences2.size()@" + conferences2.size());
 		assertTrue(1 == conferences2.size());
 
-		Signup signup = newSignup();
-		signup.setConference(conference);
+		Conference conf = conferenceRepository.findOne(cid);
 
-		signupRepository.save(signup);
+		Signup signup = newSignup();
+		signup.setConference(conf);
+
+		signup = signupRepository.save(signup);
 		log.debug("signup @" + signup);
 
 		assertTrue(null != signup.getId());
 
-		QSignup qsignup = QSignup.signup;
-
 		List<Signup> signups = (List<Signup>) signupRepository
-				.findAll(qsignup.conference.eq(conference));
+				.findAll(QSignup.signup.conference.eq(conf));
 		log.debug("signups.size()@" + signups.size());
-
 		assertTrue(1 == signups.size());
 
 		Signup signup2 = newSignup();
 		signup2.setComment("another comments");
-		signup2.setConference(conference);
+		signup2.setConference(conf);
 
-		signupRepository.save(signup2);
+		signup2 = signupRepository.save(signup2);
+		log.debug("signup2 @" + signup2);
 
 		assertTrue(null != signup2.getId());
 
 		List<Signup> signups2 = (List<Signup>) signupRepository
-				.findAll(qsignup.conference.eq(conference));
-		assertTrue(2 == signups2.size());
-
+				.findAll(QSignup.signup.conference.eq(conf));
 		log.debug("signups2.size()@" + signups2.size());
+		assertTrue(2 == signups2.size());
 
 	}
 }

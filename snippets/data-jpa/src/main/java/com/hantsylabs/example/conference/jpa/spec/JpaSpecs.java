@@ -13,7 +13,7 @@ import org.springframework.data.jpa.domain.Specification;
 
 import com.hantsylabs.example.conference.model.Conference;
 
-public class JpaPredicates {
+public class JpaSpecs {
 
 	public static Specification<Conference> inProgressConferences() {
 		return new Specification<Conference>() {
