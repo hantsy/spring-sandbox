@@ -12,16 +12,18 @@
 		<module>conference-webapp</module>
 	</modules>
 	<properties>
-		<aspectj.version>1.7.0</aspectj.version>
+		<aspectj.version>1.7.2</aspectj.version>
 		<java.version>1.6</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<roo.version>1.2.3.RELEASE</roo.version>
-		<slf4j.version>1.7.2</slf4j.version>
-		<spring.version>3.2.2.RELEASE</spring.version>
+		<slf4j.version>1.7.2</slf4j.version>		
 		<querydsl.version>2.9.0</querydsl.version>
+		<mongo-java-driver.version>2.10.1</mongo-java-driver.version>
+		<spring.version>3.2.2.RELEASE</spring.version>
 		<spring-data-jpa.version>1.3.2.RELEASE</spring-data-jpa.version>
 		<spring-data-mongo.version>1.2.1.RELEASE</spring-data-mongo.version>
-		<spring-security.version>3.1.4.RELEASE</spring-security.version>
+		<spring-webflow.version>2.4.0.M1</spring-webflow.version>
+		<spring-security.version>3.2.0.M1</spring-security.version>
 	</properties>
 	<repositories>
 		<repository>
@@ -86,7 +88,8 @@
 			<dependency>
 				<groupId>log4j</groupId>
 				<artifactId>log4j</artifactId>
-				<version>1.2.16</version>
+				<version>1.2.17</version>
+				<scope>runtime</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
@@ -383,7 +386,7 @@
 				<artifactId>spring-data-mongodb-cross-store</artifactId>
 				<version>${spring-data-mongo.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-mongodb-log4j</artifactId>
@@ -408,11 +411,17 @@
 				<artifactId>querydsl-jpa</artifactId>
 				<version>${querydsl.version}</version>
 			</dependency>
-
+			<dependency>
+				<groupId>org.mongodb</groupId>
+				<artifactId>mongo-java-driver</artifactId>
+				<version>${mongo-java-driver.version}</version>
+				<scope>compile</scope>
+			</dependency>
+			
 			<dependency>
 				<groupId>org.springframework.webflow</groupId>
 				<artifactId>spring-webflow</artifactId>
-				<version>2.3.1.RELEASE</version>
+				<version>${spring-webflow.version}</version>
 				<exclusions>
 					<exclusion>
 						<artifactId>commons-logging</artifactId>

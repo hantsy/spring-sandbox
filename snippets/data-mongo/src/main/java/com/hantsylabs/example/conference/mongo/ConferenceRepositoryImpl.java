@@ -13,6 +13,7 @@ import org.springframework.data.mongodb.core.query.Update;
 import com.hantsylabs.example.conference.model.Conference;
 import com.mongodb.WriteResult;
 
+
 public class ConferenceRepositoryImpl implements ConferenceRepositoryCustom {
 	private static final Logger log = LoggerFactory
 			.getLogger(ConferenceRepositoryImpl.class);
