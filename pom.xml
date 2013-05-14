@@ -16,7 +16,7 @@
 		<java.version>1.6</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<roo.version>1.2.3.RELEASE</roo.version>
-		<slf4j.version>1.7.2</slf4j.version>		
+		<slf4j.version>1.7.2</slf4j.version>
 		<querydsl.version>2.9.0</querydsl.version>
 		<mongo-java-driver.version>2.10.1</mongo-java-driver.version>
 		<spring.version>3.2.2.RELEASE</spring.version>
@@ -417,7 +417,7 @@
 				<version>${mongo-java-driver.version}</version>
 				<scope>compile</scope>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.springframework.webflow</groupId>
 				<artifactId>spring-webflow</artifactId>
@@ -470,7 +470,7 @@
 				<plugin>
 					<groupId>com.mysema.maven</groupId>
 					<artifactId>apt-maven-plugin</artifactId>
-					<version>1.0.8</version>
+					<version>1.0.9</version>
 					<executions>
 						<execution>
 							<goals>
@@ -478,8 +478,10 @@
 							</goals>
 							<configuration>
 								<outputDirectory>target/generated-sources/java</outputDirectory>
-								<processor>org.springframework.data.mongodb.repository.support.MongoAnnotationProcessor</processor>
-								<processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>
+								<processors>
+									<processor>org.springframework.data.mongodb.repository.support.MongoAnnotationProcessor</processor>
+									<processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>
+								</processors>
 							</configuration>
 						</execution>
 					</executions>
