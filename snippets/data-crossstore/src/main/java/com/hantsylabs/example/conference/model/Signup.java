@@ -13,10 +13,10 @@ import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
-@Document
+//@Document
 public class Signup {
 
-	@Id
+	//@Id
 	private String id;
 
 	@Version
@@ -53,7 +53,7 @@ public class Signup {
 	@Override
 	public String toString() {
 		return ReflectionToStringBuilder.toString(this,
-				ToStringStyle.SHORT_PREFIX_STYLE);
+				ToStringStyle.MULTI_LINE_STYLE);
 	}
 
 	public String getId() {

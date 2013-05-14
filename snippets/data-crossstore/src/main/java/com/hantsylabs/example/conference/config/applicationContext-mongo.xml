@@ -17,6 +17,10 @@
 
 	<bean class="org.springframework.data.mongodb.core.MongoExceptionTranslator" />
 
+	<bean
+		class="org.springframework.data.mongodb.core.mapping.event.LoggingEventListener" />
+
+	
 	<!-- Mongo cross-store aspect config -->
 	<bean
 		class="org.springframework.data.mongodb.crossstore.MongoDocumentBacking"

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.hantsylabs.example.conference.model.Conference;
 
-@Repository
+
 public interface ConferenceRepository extends 
 		JpaRepository<Conference, Long> {
 

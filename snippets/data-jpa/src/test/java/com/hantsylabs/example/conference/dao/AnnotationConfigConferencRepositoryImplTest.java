@@ -104,25 +104,30 @@ public class AnnotationConfigConferencRepositoryImplTest {
 		conference.setName("Test JUD");
 		conference.getAddress().setCountry("US");
 		conference =conferenceRepository.save(conference);
-		em.flush();
-		
+		em.flush();	
 		assertTrue(null!=conference.getId());
+		em.clear();
 		
 		conference=conferenceRepository.findBySlug("test-jud");
 		assertTrue(null!=conference);
+		em.clear();
 		
 		List<Conference> confs=conferenceRepository.findByAddressCountry("US");
 		assertTrue(!confs.isEmpty());
+		em.clear();
 		
 		
 		confs=conferenceRepository.searchByConferenceName("Test JUD");
 		assertTrue(!confs.isEmpty());
+		em.clear();
 		
 		confs=conferenceRepository.searchByNamedConferenceName("Test JUD");
 		assertTrue(!confs.isEmpty());
+		em.clear();
 		
 		confs=conferenceRepository.searchByMyNamedQuery("Test JUD");
 		assertTrue(!confs.isEmpty());
+		em.clear();
 			
 	} 
 

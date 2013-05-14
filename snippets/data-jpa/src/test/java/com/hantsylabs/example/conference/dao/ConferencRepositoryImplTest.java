@@ -114,6 +114,7 @@ public class ConferencRepositoryImplTest {
 	public void afterTestCase() {
 		log.debug("==================after test case=========================");
 		conferenceRepository.deleteAll();
+		em.clear();
 	}
 
 	@Test
@@ -165,27 +166,27 @@ public class ConferencRepositoryImplTest {
 		em.flush();
 
 		assertTrue(null != conference.getId());
-
+		em.clear();
 		conference = conferenceRepository.findBySlug("test-jud");
 		assertTrue(null != conference);
 
 		List<Conference> confs = (List<Conference>) conferenceRepository
 				.findAll(QConference.conference.address.country.eq("US"));
 		assertTrue(!confs.isEmpty());
-
+		em.clear();
 		confs = (List<Conference>) conferenceRepository
 				.findAll(QConference.conference.name.eq("Test JUD"));
 		assertTrue(!confs.isEmpty());
-
+		em.clear();
 		confs = (List<Conference>) conferenceRepository
 				.findAll(QConference.conference.description.contains("Boston"));
 		assertTrue(!confs.isEmpty());
-
+		em.clear();
 		confs = (List<Conference>) conferenceRepository
 				.findAll(QConference.conference.signups.any().email
 						.eq("test@test.com"));
 		assertTrue(!confs.isEmpty());
-		
+		em.clear();
 		confs = (List<Conference>) conferenceRepository
 				.findAll(QConference.conference.signups.any().email
 						.eq("test@test.com123"));
@@ -273,6 +274,7 @@ public class ConferencRepositoryImplTest {
 		conference.setEndedDate(endedDate);
 		conference = conferenceRepository.save(conference);
 		em.flush();
+		em.clear();
 
 		List<Conference> confs = conferenceRepository.findAll(JpaSpecs
 				.inProgressConferences());
@@ -334,7 +336,8 @@ public class ConferencRepositoryImplTest {
 		endedDate = cal.getTime();
 		conference.setEndedDate(endedDate);
 		conference = conferenceRepository.save(conference);
-		em.flush();
+		em.flush();		
+		em.clear();
 
 		List<Conference> confs = (List<Conference>) conferenceRepository
 				.findAll(QueryDslPredicates.inProgressConferences());

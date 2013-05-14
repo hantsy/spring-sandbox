@@ -18,6 +18,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.hantsylabs.example.conference.jpa.ConferenceRepository;
@@ -28,7 +30,10 @@ import com.hantsylabs.example.conference.model.Status;
 import com.hantsylabs.example.conference.mongo.SignupRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:/com/hantsylabs/example/conference/config/applicationContext-*.xml")
+@ContextConfiguration(locations = {
+		"classpath:/com/hantsylabs/example/conference/config/applicationContext-jpa.xml",
+		"classpath:/com/hantsylabs/example/conference/config/applicationContext-mongo.xml" })
+// @TransactionConfiguration
 public class ConferenceCrossStoreImplTest {
 
 	private static final Logger log = LoggerFactory
@@ -87,11 +92,27 @@ public class ConferenceCrossStoreImplTest {
 
 	}
 
+	Long id;
+
 	@Before
-	@Transactional
+	@Transactional(propagation=Propagation.REQUIRED)
 	public void beforeTestCase() {
 		log.debug("==================before test case=========================");
-		conferenceRepository.save(newConference());
+		Conference conference = newConference();
+		conference.setSlug("test-jud");
+		conference.setName("Test JUD");
+		Signup signup1 = newSignup();
+		Signup signup2 = newSignup();
+
+		signup2.setEmail("testanother@tom.com");
+
+		conference.addSignup(signup1);
+		conference.addSignup(signup2);
+		conference.setContact(new Contact("Hantsy"));
+		conference = conferenceRepository.save(conference);
+		em.flush();
+		id = conference.getId();
+		//em.clear();
 	}
 
 	@After
@@ -102,36 +123,26 @@ public class ConferenceCrossStoreImplTest {
 	}
 
 	@Test
-	@Transactional
+	@Transactional(propagation=Propagation.REQUIRED)
 	public void retrieveConference() {
-		Conference conference = newConference();
-		conference.setSlug("test-jud");
-		conference.setName("Test JUD");
-		Signup signup1=newSignup();
-		Signup signup2=newSignup();
-		
-		signup2.setEmail("testanother@tom.com");
-		
-		conference.addSignup(signup1);
-		conference.addSignup(signup2);
-		conference.setContact(new Contact("Hantsy"));
-		conference = conferenceRepository.save(conference);
-		em.flush();
+		log.debug("==================enter retrieveConference=========================");
+		// em.clear();
+		assertTrue(null != id);
 
-		Conference conf = conferenceRepository.findOne(conference.getId());
+		Conference conf = conferenceRepository.findOne(id);
 
 		log.debug("conf@@@" + conf);
 		assertTrue(null != conf);
-		
-//		log.debug("contact id @@@" + conf.getContact().getId());
-//		assertTrue(null!=conf.getContact().getId());
-		
+
+		// log.debug("contact id @@@" + conf.getContact().getId());
+		// assertTrue(null!=conf.getContact().getId());
+
 		/**
 		 * Id is not assigned by Spring data mongo....@
 		 */
 		assertTrue("Hantsy".equals(conf.getContact().getName()));
 
-		log.debug("signup size @"+conf.getSignups().size());
+		log.debug("signup size @" + conf.getSignups().size());
 		assertTrue(2 == conf.getSignups().size());
 	}
 
