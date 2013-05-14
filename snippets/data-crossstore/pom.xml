@@ -155,16 +155,6 @@
 			</dependency> <dependency> <groupId>com.mysema.querydsl</groupId> <artifactId>querydsl-mongodb</artifactId> 
 			</dependency> -->
 
-		<dependency>
-			<groupId>org.springframework.webflow</groupId>
-			<artifactId>spring-webflow</artifactId>
-		</dependency>
-		<!-- dependency injection jsr 330 -->
-		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
-		</dependency>
-
 	</dependencies>
 	<build>
 		<plugins>

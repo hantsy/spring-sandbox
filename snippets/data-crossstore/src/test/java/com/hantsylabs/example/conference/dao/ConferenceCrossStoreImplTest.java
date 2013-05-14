@@ -17,8 +17,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,7 +36,9 @@ import com.hantsylabs.example.conference.mongo.SignupRepository;
 @ContextConfiguration(locations = {
 		"classpath:/com/hantsylabs/example/conference/config/applicationContext-jpa.xml",
 		"classpath:/com/hantsylabs/example/conference/config/applicationContext-mongo.xml" })
-// @TransactionConfiguration
+@TransactionConfiguration(transactionManager="transactionManager")
+@TestExecutionListeners({ TransactionalTestExecutionListener.class,
+    DependencyInjectionTestExecutionListener.class })
 public class ConferenceCrossStoreImplTest {
 
 	private static final Logger log = LoggerFactory
@@ -112,7 +117,7 @@ public class ConferenceCrossStoreImplTest {
 		conference = conferenceRepository.save(conference);
 		em.flush();
 		id = conference.getId();
-		//em.clear();
+		em.clear();
 	}
 
 	@After
@@ -138,7 +143,7 @@ public class ConferenceCrossStoreImplTest {
 		// assertTrue(null!=conf.getContact().getId());
 
 		/**
-		 * Id is not assigned by Spring data mongo....@
+		 * Id is not assigned by Spring data mongo....why@
 		 */
 		assertTrue("Hantsy".equals(conf.getContact().getName()));
 
