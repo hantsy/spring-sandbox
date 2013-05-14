@@ -12,10 +12,10 @@
 		<relativePath>../</relativePath>
 	</parent>
 	<modules>
-	<module>conference-dao-snippets</module>
-	<module>conference-data-crossstore-snippets</module>
-	<module>conference-data-jpa-snippets</module>
-	<module>conference-data-mongo-snippets</module>
-	<module>conference-jpa-snippets</module>
+	<module>dao</module>
+	<module>data-crossstore</module>
+	<module>data-jpa</module>
+	<module>data-mongo</module>
+	<module>jpa</module>
 	</modules>
 </project>

@@ -20,7 +20,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,7 +36,7 @@ import com.hantsylabs.example.conference.mongo.SignupRepository;
 @ContextConfiguration(locations = {
 		"classpath:/com/hantsylabs/example/conference/config/applicationContext-jpa.xml",
 		"classpath:/com/hantsylabs/example/conference/config/applicationContext-mongo.xml" })
-@TransactionConfiguration(transactionManager = "transactionManager")
+// @TransactionConfiguration(transactionManager = "transactionManager")
 @TestExecutionListeners({ TransactionalTestExecutionListener.class,
 		DependencyInjectionTestExecutionListener.class })
 public class ConferenceCrossStoreImplTest {
@@ -53,7 +52,7 @@ public class ConferenceCrossStoreImplTest {
 
 	@Autowired
 	private ContactRepository contactRepository;
-
+	
 	@PersistenceContext
 	EntityManager em;
 
@@ -105,7 +104,23 @@ public class ConferenceCrossStoreImplTest {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void beforeTestCase() {
 		log.debug("==================before test case=========================");
+		Conference conference = newConference();
+		conference.setSlug("test-jud");
+		conference.setName("Test JUD");
+		Signup signup1 = newSignup();
+		Signup signup2 = newSignup();
 
+		signup2.setEmail("testanother@tom.com");
+
+		conference.addSignup(signup1);
+		conference.addSignup(signup2);
+		conference.setContact(new Contact("Hantsy"));
+		em.persist(conference);
+		em.flush();
+
+		Long id = conference.getId();
+
+		em.clear();
 	}
 
 	@After
@@ -131,30 +146,13 @@ public class ConferenceCrossStoreImplTest {
 	}
 
 	@Test
-	@Transactional(propagation = Propagation.REQUIRED)
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
 	public void retrieveConference() {
 		log.debug("==================enter retrieveConference=========================");
-		Conference conference = newConference();
-		conference.setSlug("test-jud");
-		conference.setName("Test JUD");
-		Signup signup1 = newSignup();
-		Signup signup2 = newSignup();
 
-		signup2.setEmail("testanother@tom.com");
+		// assertTrue(null != id);
 
-		conference.addSignup(signup1);
-		conference.addSignup(signup2);
-		conference.setContact(new Contact("Hantsy"));
-		conference = conferenceRepository.save(conference);
-		em.flush();
-
-		Long id = conference.getId();
-
-		em.clear();
-
-		assertTrue(null != id);
-
-		Conference conf = conferenceRepository.findOne(id);
+		Conference conf = em.find(Conference.class, 1L);
 
 		log.debug("conf@@@" + conf);
 		assertTrue(null != conf);

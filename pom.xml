@@ -8,8 +8,8 @@
 	<version>0.1.0.BUILD-SNAPSHOT</version>
 	<name>conference</name>
 	<modules>
-		<module>conference-snippets-parent</module>
-		<module>conference-webapp</module>
+		<module>snippets</module>
+		<module>webapp</module>
 	</modules>
 	<properties>
 		<aspectj.version>1.7.2</aspectj.version>
