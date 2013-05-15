@@ -554,7 +554,7 @@
 							<aspectLibrary>
 								<groupId>org.springframework</groupId>
 								<artifactId>spring-aspects</artifactId>
-							</aspectLibrary>
+							</aspectLibrary> 
 							<aspectLibrary>
 								<groupId>org.springframework.data</groupId>
 								<artifactId>spring-data-mongodb-cross-store</artifactId>
@@ -613,7 +613,7 @@
 							<buildCommand>
 								<name>org.eclipse.ajdt.core.ajbuilder</name>
 								<arguments>
-									<aspectPath>org.springframework.aspects</aspectPath>
+									<aspectPath>org.springframework.aspects, org.springframework.data.mongodb.crossstore</aspectPath>
 								</arguments>
 							</buildCommand>
 							<buildCommand>

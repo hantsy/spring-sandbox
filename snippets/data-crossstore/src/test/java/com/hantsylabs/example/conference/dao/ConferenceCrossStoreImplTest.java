@@ -99,7 +99,7 @@ public class ConferenceCrossStoreImplTest {
 		log.debug("==================before class=========================");
 
 	}
-
+	Long id;
 	@Before
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void beforeTestCase() {
@@ -118,7 +118,7 @@ public class ConferenceCrossStoreImplTest {
 		em.persist(conference);
 		em.flush();
 
-		Long id = conference.getId();
+		id = conference.getId();
 
 		em.clear();
 	}
@@ -150,9 +150,9 @@ public class ConferenceCrossStoreImplTest {
 	public void retrieveConference() {
 		log.debug("==================enter retrieveConference=========================");
 
-		// assertTrue(null != id);
+		 assertTrue(null != id);
 
-		Conference conf = em.find(Conference.class, 1L);
+		Conference conf = em.find(Conference.class, id);
 
 		log.debug("conf@@@" + conf);
 		assertTrue(null != conf);

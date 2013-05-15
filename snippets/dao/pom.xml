@@ -2,13 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>conference-dao-snippets</artifactId>
+	<artifactId>dao-snippets</artifactId>
 	<packaging>jar</packaging>
-	<name>conference-dao-snippets</name>
+	<name>dao-snippets</name>
 	<description>Using Spring DaoSupport API</description>
 	<parent>
 		<groupId>com.hantsylabs.example.conference</groupId>
-		<artifactId>conference-snippets-parent</artifactId>
+		<artifactId>snippets-parent</artifactId>
 		<version>0.1.0.BUILD-SNAPSHOT</version>
 		<relativePath>../</relativePath>
 	</parent>
