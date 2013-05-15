@@ -15,6 +15,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.repository.support.*;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -26,6 +29,7 @@ import com.hantsylabs.example.conference.model.Signup;
 import com.hantsylabs.example.conference.model.Status;
 import com.hantsylabs.example.conference.mongo.ConferenceRepository;
 import com.hantsylabs.example.conference.mongo.SignupRepository;
+import com.mysema.query.mongodb.JoinBuilder;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:/com/hantsylabs/example/conference/config/applicationContext-mongo.xml")
@@ -222,8 +226,12 @@ public class ConferencRepositoryImplTest {
 
 		assertTrue(null != signup.getId());
 
-		List<Signup> signups = (List<Signup>) signupRepository
-				.findAll(QSignup.signup.conference.eq(conf));
+		List<Signup> signups=mongoTemplate.find(Query.query(Criteria.where("conference").is(conf)), Signup.class);
+//		List<Signup> signups = (List<Signup>) signupRepository
+//				.findAll(QSignup.signup.conference.eq(conf));
+//		
+		
+		
 		log.debug("signups.size()@" + signups.size());
 		assertTrue(1 == signups.size());
 
@@ -236,8 +244,9 @@ public class ConferencRepositoryImplTest {
 
 		assertTrue(null != signup2.getId());
 
-		List<Signup> signups2 = (List<Signup>) signupRepository
-				.findAll(QSignup.signup.conference.eq(conf));
+//		List<Signup> signups2 = (List<Signup>) signupRepository
+//				.findAll(QSignup.signup.conference.eq(conf));
+		List<Signup> signups2=mongoTemplate.find(Query.query(Criteria.where("conference").is(conf)), Signup.class);
 		log.debug("signups2.size()@" + signups2.size());
 		assertTrue(2 == signups2.size());
 
