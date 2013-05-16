@@ -6,7 +6,7 @@
 	<packaging>jar</packaging>
 	<name>data-jpa-snippets</name>
 	<parent>
-		<groupId>com.hantsylabs.example.conference</groupId>
+		<groupId>com.hantsylabs.example.spring</groupId>
 		<artifactId>snippets-parent</artifactId>
 		<version>0.1.0.BUILD-SNAPSHOT</version>
 		<relativePath>../</relativePath>
@@ -170,7 +170,7 @@
 			<plugin>
 				<groupId>com.mysema.maven</groupId>
 				<artifactId>apt-maven-plugin</artifactId>
-				<!-- <version>1.0.9</version>
+				<version>1.0.9</version>
 				<executions>
 					<execution>
 						<goals>
@@ -194,7 +194,7 @@
 						<classifier>apt</classifier>
 						<version>${querydsl.version}</version>
 					</dependency>
-				</dependencies> -->
+				</dependencies> 
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>

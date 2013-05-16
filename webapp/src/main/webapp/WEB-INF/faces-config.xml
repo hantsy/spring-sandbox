@@ -17,6 +17,6 @@
         </locale-config>
     </application>
     <factory>
-        <exception-handler-factory>com.hantsylabs.example.conference.web.util.ViewExpiredExceptionExceptionHandlerFactory</exception-handler-factory>
+        <exception-handler-factory>com.hantsylabs.example.spring.web.util.ViewExpiredExceptionExceptionHandlerFactory</exception-handler-factory>
     </factory>
 </faces-config>

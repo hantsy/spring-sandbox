@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.hantsylabs.example.conference</groupId>
-	<artifactId>conference-parent</artifactId>
+	<groupId>com.hantsylabs.example.spring</groupId>
+	<artifactId>spring-sandbox-parent</artifactId>
 	<packaging>pom</packaging>
 	<version>0.1.0.BUILD-SNAPSHOT</version>
-	<name>conference</name>
+	<name>Spring Sandbox</name>
 	<modules>
 		<module>snippets</module>
 		<module>webapp</module>
@@ -467,7 +467,7 @@
 	<build>
 		<pluginManagement>
 			<plugins>
-				<plugin>
+				<!-- <plugin>
 					<groupId>com.mysema.maven</groupId>
 					<artifactId>apt-maven-plugin</artifactId>
 					<version>1.0.9</version>
@@ -485,7 +485,7 @@
 							</configuration>
 						</execution>
 					</executions>
-				</plugin>
+				</plugin> -->
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>build-helper-maven-plugin</artifactId>

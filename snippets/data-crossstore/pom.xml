@@ -6,7 +6,7 @@
 	<packaging>jar</packaging>
 	<name>data-mongo-crossstore-snippets</name>
 	<parent>
-		<groupId>com.hantsylabs.example.conference</groupId>
+		<groupId>com.hantsylabs.example.spring</groupId>
 		<artifactId>snippets-parent</artifactId>
 		<version>0.1.0.BUILD-SNAPSHOT</version>
 		<relativePath>../</relativePath>

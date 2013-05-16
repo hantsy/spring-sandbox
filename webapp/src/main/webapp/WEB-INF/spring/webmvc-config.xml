@@ -7,7 +7,7 @@
 
 	<!-- The controllers are autodetected POJOs labeled with the @Controller 
 		annotation. -->
-	<context:component-scan base-package="com.hantsylabs.example.conference"
+	<context:component-scan base-package="com.hantsylabs.example.spring.conference"
 		use-default-filters="false">
 		<context:include-filter expression="org.springframework.stereotype.Controller"
 			type="annotation" />
@@ -104,7 +104,7 @@
 		</property>
 	</bean> -->
 	<bean
-		class="com.hantsylabs.example.conference.web.ApplicationConversionServiceFactoryBean"
+		class="com.hantsylabs.example.spring.conference.web.ApplicationConversionServiceFactoryBean"
 		id="applicationConversionService" />
 	<!-- <import resource="webflow-config.xml" /> -->
 </beans>

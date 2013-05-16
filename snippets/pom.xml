@@ -6,8 +6,8 @@
 	<packaging>pom</packaging>
 	<name>snippets-parent</name>
 	<parent>
-		<groupId>com.hantsylabs.example.conference</groupId>
-		<artifactId>conference-parent</artifactId>
+		<groupId>com.hantsylabs.example.spring</groupId>
+		<artifactId>spring-sandbox-parent</artifactId>
 		<version>0.1.0.BUILD-SNAPSHOT</version>
 		<relativePath>../</relativePath>
 	</parent>

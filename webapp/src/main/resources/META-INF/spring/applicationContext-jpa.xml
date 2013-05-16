@@ -14,7 +14,7 @@
     http://www.springframework.org/schema/tx 
     http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 
-	<jpa:repositories base-package="com.hantsylabs.example.conference.repositories" />
+	<jpa:repositories base-package="com.hantsylabs.example.spring.repositories" />
 	
 	<bean class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" id="dataSource">

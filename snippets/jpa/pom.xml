@@ -7,7 +7,7 @@
 	<name>jpa-snippets</name>
 	<description>Using Native JPA and Hibernate API in Spring</description>
 	<parent>
-		<groupId>com.hantsylabs.example.conference</groupId>
+		<groupId>com.hantsylabs.example.spring</groupId>
 		<artifactId>snippets-parent</artifactId>
 		<version>0.1.0.BUILD-SNAPSHOT</version>
 		<relativePath>../</relativePath>

@@ -7,7 +7,7 @@
 	<name>dao-snippets</name>
 	<description>Using Spring DaoSupport API</description>
 	<parent>
-		<groupId>com.hantsylabs.example.conference</groupId>
+		<groupId>com.hantsylabs.example.spring</groupId>
 		<artifactId>snippets-parent</artifactId>
 		<version>0.1.0.BUILD-SNAPSHOT</version>
 		<relativePath>../</relativePath>
