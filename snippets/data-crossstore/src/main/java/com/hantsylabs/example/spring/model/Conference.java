@@ -1,8 +1,6 @@
 package com.hantsylabs.example.spring.model;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 
@@ -49,14 +46,25 @@ public class Conference {
 
 	@NotNull
 	private String slug;
-	
+
 	@RelatedDocument
-	//@Transient
+	// @Transient
 	private Contact contact;
 
 	@RelatedDocument
-	//@Transient
-	private Set<Signup> signups = new HashSet<Signup>();
+	private SignupInfo signupInfo;
+
+	// @RelatedDocument
+	// //@Transient
+	// private Set<Signup> signups = new HashSet<Signup>();
+
+	public SignupInfo getSignupInfo() {
+		return signupInfo;
+	}
+
+	public void setSignupInfo(SignupInfo signupInfo) {
+		this.signupInfo = signupInfo;
+	}
 
 	public String getName() {
 		return this.name;
@@ -98,13 +106,13 @@ public class Conference {
 		this.slug = slug;
 	}
 
-	public Set<Signup> getSignups() {
-		return this.signups;
-	}
-
-	public void setSignups(Set<Signup> signups) {
-		this.signups = signups;
-	}
+	// public Set<Signup> getSignups() {
+	// return this.signups;
+	// }
+	//
+	// public void setSignups(Set<Signup> signups) {
+	// this.signups = signups;
+	// }
 
 	@Override
 	public String toString() {
@@ -136,10 +144,10 @@ public class Conference {
 		this.contact = contact;
 	}
 
-	public void addSignup(Signup signup) {
-		if (!this.signups.contains(signup)) {
-			signups.add(signup);
-			//signup.setConference(this);
-		}
-	}
+	// public void addSignup(Signup signup) {
+	// if (!this.signups.contains(signup)) {
+	// signups.add(signup);
+	// //signup.setConference(this);
+	// }
+	// }
 }

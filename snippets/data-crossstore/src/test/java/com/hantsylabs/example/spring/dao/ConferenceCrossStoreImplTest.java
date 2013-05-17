@@ -21,13 +21,17 @@ import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.springframework.test.context.transaction.TransactionalTestExecutionListener;
-import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.TransactionCallback;
+import org.springframework.transaction.support.TransactionTemplate;
 
 import com.hantsylabs.example.spring.jpa.ConferenceRepository;
 import com.hantsylabs.example.spring.model.Conference;
 import com.hantsylabs.example.spring.model.Contact;
 import com.hantsylabs.example.spring.model.Signup;
+import com.hantsylabs.example.spring.model.SignupInfo;
 import com.hantsylabs.example.spring.model.Status;
 import com.hantsylabs.example.spring.mongo.ContactRepository;
 import com.hantsylabs.example.spring.mongo.SignupRepository;
@@ -52,7 +56,12 @@ public class ConferenceCrossStoreImplTest {
 
 	@Autowired
 	private ContactRepository contactRepository;
-	
+
+	@Autowired
+	PlatformTransactionManager transactionManager;
+
+	TransactionTemplate transactionTemplate;
+
 	@PersistenceContext
 	EntityManager em;
 
@@ -99,28 +108,56 @@ public class ConferenceCrossStoreImplTest {
 		log.debug("==================before class=========================");
 
 	}
+
 	Long id;
+
 	@Before
-	@Transactional(propagation = Propagation.REQUIRED)
+	// @Transactional(propagation = Propagation.REQUIRED)
 	public void beforeTestCase() {
 		log.debug("==================before test case=========================");
-		Conference conference = newConference();
-		conference.setSlug("test-jud");
-		conference.setName("Test JUD");
-		Signup signup1 = newSignup();
-		Signup signup2 = newSignup();
+		transactionTemplate = new TransactionTemplate(transactionManager);
+		transactionTemplate.execute(new TransactionCallback<Void>() {
 
-		signup2.setEmail("testanother@tom.com");
+			@Override
+			public Void doInTransaction(TransactionStatus status) {
+				Conference conference = newConference();
+				conference.setSlug("test-jud");
+				conference.setName("Test JUD");
+				SignupInfo signupInfo = new SignupInfo();
 
-		conference.addSignup(signup1);
-		conference.addSignup(signup2);
-		conference.setContact(new Contact("Hantsy"));
-		em.persist(conference);
-		em.flush();
+				Signup signup1 = newSignup();
+				Signup signup2 = newSignup();
 
-		id = conference.getId();
+				signup2.setEmail("testanother@tom.com");
 
-		em.clear();
+				signup1 = signupRepository.save(signup1);
+				signup2 = signupRepository.save(signup2);
+				// conference.addSignup(signup1);
+				// conference.addSignup(signup2);
+				signupInfo.getSignups().add(signup1);
+				signupInfo.getSignups().add(signup2);
+				
+				conference.setSignupInfo(signupInfo);
+				
+				conference.setContact(new Contact("Hantsy"));
+				em.persist(conference);
+				em.flush();
+
+				id = conference.getId();
+				
+				return null;
+			}
+		});
+		
+		transactionTemplate.execute(new TransactionCallback<Void>() {
+
+			@Override
+			public Void doInTransaction(TransactionStatus status) {
+				em.clear();
+				return null;
+			}
+		});
+
 	}
 
 	@After
@@ -146,11 +183,11 @@ public class ConferenceCrossStoreImplTest {
 	}
 
 	@Test
-	@Transactional(propagation = Propagation.REQUIRES_NEW)
+	// @Transactional(propagation = Propagation.REQUIRES_NEW)
 	public void retrieveConference() {
 		log.debug("==================enter retrieveConference=========================");
 
-		 assertTrue(null != id);
+		assertTrue(null != id);
 
 		Conference conf = em.find(Conference.class, id);
 
@@ -165,8 +202,9 @@ public class ConferenceCrossStoreImplTest {
 		 */
 		assertTrue("Hantsy".equals(conf.getContact().getName()));
 
-		log.debug("signup size @" + conf.getSignups().size());
-		assertTrue(2 == conf.getSignups().size());
+		// TODO does not support List
+		 log.debug("signup size @" + conf.getSignupInfo().getSignups().size());
+		 assertTrue(2 == conf.getSignupInfo().getSignups().size());
 	}
 
 }
