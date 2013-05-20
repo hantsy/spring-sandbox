@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_hantsylabs_example_spring_conference_model_Signup" modelAttribute="signup" path="/signups" versionField="Version" z="U6oZ93yRnH0/Sl2Wq6nmUCZog/4=">
+        <field:input field="firstName" id="c_com_hantsylabs_example_spring_conference_model_Signup_firstName" required="true" z="tWangIxC1haZv9OtaXZLdmKqp7I="/>
+        <field:input field="lastName" id="c_com_hantsylabs_example_spring_conference_model_Signup_lastName" required="true" z="ON/k/Aj/YDGnq5iPejc9QndrhCU="/>
+        <field:input field="email" id="c_com_hantsylabs_example_spring_conference_model_Signup_email" required="true" validationMessageCode="field_invalid_email" z="uKUpHJ8eRMsBWTY8xSMlQjGL8Mo="/>
+        <field:input field="phone" id="c_com_hantsylabs_example_spring_conference_model_Signup_phone" required="true" z="MKVaY1plqo4LOThBSC1S0tDNs48="/>
+        <field:input field="occupation" id="c_com_hantsylabs_example_spring_conference_model_Signup_occupation" z="l+n5voscrEC0DyoWS0ItLdyhKzo="/>
+        <field:input field="company" id="c_com_hantsylabs_example_spring_conference_model_Signup_company" z="VIqoACu1CvuJrTbsKCLE3WkpMGo="/>
+        <field:input field="comment" id="c_com_hantsylabs_example_spring_conference_model_Signup_comment" z="mUZ4oVZ9OlzDw04s9z/hZRSR5zM="/>
+        <field:datetime dateTimePattern="${signup_createdat_date_format}" field="createdAt" id="c_com_hantsylabs_example_spring_conference_model_Signup_createdAt" required="true" z="7ghO6OYSgJyUq3tdeTm+nljeCWM="/>
+        <field:select field="conference" id="c_com_hantsylabs_example_spring_conference_model_Signup_conference" itemValue="id" items="${conferences}" path="/conferences" required="true" z="ji+/Okr/tpCCAUaWWKqSgtWBj8o="/>
+    </form:update>
+</div>

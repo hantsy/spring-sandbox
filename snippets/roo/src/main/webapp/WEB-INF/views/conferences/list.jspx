@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_hantsylabs_example_spring_conference_model_Conference" items="${conferences}" z="UVSQVGtIuzNkniMLzL/ocyQg0f0=">
+        <table:table data="${conferences}" id="l_com_hantsylabs_example_spring_conference_model_Conference" path="/conferences" z="u8WNWyOqLGJhWmbo2cUQlDpFOaQ=">
+            <table:column id="c_com_hantsylabs_example_spring_conference_model_Conference_name" property="name" z="Cj8YCEjoyHyPA6ujQ3eCFlyf4ic="/>
+            <table:column id="c_com_hantsylabs_example_spring_conference_model_Conference_description" property="description" z="otp5K+PCAUBOBiJnXezUjvl6CZY="/>
+            <table:column date="true" dateTimePattern="${conference_endeddate_date_format}" id="c_com_hantsylabs_example_spring_conference_model_Conference_endedDate" property="endedDate" z="zrCokFRcqMLRpfGcd2+/RX+V5SQ="/>
+            <table:column id="c_com_hantsylabs_example_spring_conference_model_Conference_slug" property="slug" z="Zv/TUuwEdqbocrQcPpkkgLtFo4E="/>
+        </table:table>
+    </page:list>
+</div>

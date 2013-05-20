@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_hantsylabs_example_spring_conference_model_Signup" items="${signups}" z="C0OxPeOygX+Xec6lbo7hSGBT08M=">
+        <table:table data="${signups}" id="l_com_hantsylabs_example_spring_conference_model_Signup" path="/signups" z="tT8dfbQ3pSACOTDL384Oxmg3kAs=">
+            <table:column id="c_com_hantsylabs_example_spring_conference_model_Signup_firstName" property="firstName" z="5Ei3VC8BqVEk6mhH1BPauG4tiqQ="/>
+            <table:column id="c_com_hantsylabs_example_spring_conference_model_Signup_lastName" property="lastName" z="vcpzhIhis+RTqQXFDZUmcBsBmaM="/>
+            <table:column id="c_com_hantsylabs_example_spring_conference_model_Signup_email" property="email" z="hyBu8fvrzDlOXEh/DhQsNbCUowc="/>
+            <table:column id="c_com_hantsylabs_example_spring_conference_model_Signup_phone" property="phone" z="aJ6xCj3vCMB95BqA2FC6Heuk08k="/>
+            <table:column id="c_com_hantsylabs_example_spring_conference_model_Signup_occupation" property="occupation" z="VsZb6vu5/7VSb7wmZ2ip2QjPe5A="/>
+            <table:column id="c_com_hantsylabs_example_spring_conference_model_Signup_company" property="company" z="A5Ajl2VODj2jVhvtc52ROsUBM2w="/>
+        </table:table>
+    </page:list>
+</div>

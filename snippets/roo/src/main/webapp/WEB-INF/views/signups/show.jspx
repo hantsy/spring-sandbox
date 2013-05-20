@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_hantsylabs_example_spring_conference_model_Signup" object="${signup}" path="/signups" z="mS8XwCbAxeIz3FCB10agRk0H/kM=">
+        <field:display field="firstName" id="s_com_hantsylabs_example_spring_conference_model_Signup_firstName" object="${signup}" z="yWzjBvkw61E0IgBrMaxLemT4mpY="/>
+        <field:display field="lastName" id="s_com_hantsylabs_example_spring_conference_model_Signup_lastName" object="${signup}" z="wdfXM/x/YJtYrenToHWOgzCkvrQ="/>
+        <field:display field="email" id="s_com_hantsylabs_example_spring_conference_model_Signup_email" object="${signup}" z="fXsHesZErpLTeKggokP358e6Uyk="/>
+        <field:display field="phone" id="s_com_hantsylabs_example_spring_conference_model_Signup_phone" object="${signup}" z="RLunioc97a1XZq3OSrSgK86p56A="/>
+        <field:display field="occupation" id="s_com_hantsylabs_example_spring_conference_model_Signup_occupation" object="${signup}" z="qFzzOUX6xabQNbyi/W3K/ijdUEw="/>
+        <field:display field="company" id="s_com_hantsylabs_example_spring_conference_model_Signup_company" object="${signup}" z="iK/hqNJ920EWQWtHh+KgDZKdZeY="/>
+        <field:display field="comment" id="s_com_hantsylabs_example_spring_conference_model_Signup_comment" object="${signup}" z="UvoEn6GIq3s0gjkdn3FT/bjGGpk="/>
+        <field:display date="true" dateTimePattern="${signup_createdat_date_format}" field="createdAt" id="s_com_hantsylabs_example_spring_conference_model_Signup_createdAt" object="${signup}" z="qFZwUF1WztozOvjRPEVo0JPVw/s="/>
+        <field:display field="conference" id="s_com_hantsylabs_example_spring_conference_model_Signup_conference" object="${signup}" z="uRBP2J3exM8zxCwkzz4Xi1c/i4k="/>
+    </page:show>
+</div>

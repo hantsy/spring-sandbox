@@ -1,0 +1,49 @@
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-05-20 14:33:35
+project --topLevelPackage com.hantsylabs.example.spring.conference
+
+persistence setup --database HYPERSONIC_IN_MEMORY --provider HIBERNATE 
+
+entity jpa --class ~.model.Conference --testAutomatically --activeRecord false
+field string --fieldName name --notNull 
+field string --fieldName description 
+field date --fieldName startedDate --type java.util.Date --notNull 
+field date --fieldName endedDate --type java.util.Date --notNull 
+field string --fieldName slug --notNull 
+
+repository jpa --entity ~.model.Conference --interface ~.repository.ConferenceRepository
+
+service --entity ~.model.Conference --interface ~.service.ConferenceService
+
+entity jpa --class ~.model.Signup --testAutomatically 
+field string --fieldName firstName --notNull 
+field string --fieldName lastName --notNull 
+field string --fieldName email --notNull 
+field string --fieldName phone --notNull 
+field string --fieldName occupation  
+field string --fieldName company  
+field string --fieldName comment  
+field date --type java.util.Date --fieldName createdAt --notNull 
+
+field reference --fieldName conference --type ~.model.Conference --notNull 
+field set --type ~.model.Signup --class ~.model.Conference --fieldName signups --cardinality ONE_TO_MANY 
+
+web mvc setup
+web mvc all --package  ~.web
+
+perform tests
+
+cloud foundry login --email <your email> --password <your password>  
+
+cloud foundry create service --serviceType mysql --serviceName roo-conf
+cloud foundry list services
+
+cloud foundry deploy --appName roo-hantsy-conference --path CREATE
+cloud foundry list apps
+
+//
+//cloud foundry deploy --appName roo-hantsy-conference --path target\conference-0.1.0.BUILD-SNAPSHOT.war 
+
+cloud foundry bind service --appName roo-hantsy-conference --serviceName roo-conf
+cloud foundry update app memory --appName roo-hantsy-conference
+
+

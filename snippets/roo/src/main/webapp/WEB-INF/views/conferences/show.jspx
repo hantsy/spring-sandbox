@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_hantsylabs_example_spring_conference_model_Conference" object="${conference}" path="/conferences" z="AvMWV2ZDn2DtwXWBAv8CIYEmmiM=">
+        <field:display field="name" id="s_com_hantsylabs_example_spring_conference_model_Conference_name" object="${conference}" z="DQS7XXCOMNKSx5TaETJsZiusXI8="/>
+        <field:display field="description" id="s_com_hantsylabs_example_spring_conference_model_Conference_description" object="${conference}" z="8sejgx83nyOHo2OfsNYuU4wzMd4="/>
+        <field:display date="true" dateTimePattern="${conference_endeddate_date_format}" field="endedDate" id="s_com_hantsylabs_example_spring_conference_model_Conference_endedDate" object="${conference}" z="HVxYqqIuIUKRG6oQiRPGo4bv7ko="/>
+        <field:display field="slug" id="s_com_hantsylabs_example_spring_conference_model_Conference_slug" object="${conference}" z="LIBWdM/KvEIJL+UGd78tO+rUBeU="/>
+    </page:show>
+</div>

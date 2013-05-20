@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_hantsylabs_example_spring_conference_model_Conference" modelAttribute="conference" path="/conferences" render="${empty dependencies}" z="wbcbUrf7jKCp8LkvbSzuwssEA0U=">
+        <field:input field="name" id="c_com_hantsylabs_example_spring_conference_model_Conference_name" required="true" z="LYo2cXOCihBdCqBEdNUEdryeccU="/>
+        <field:input field="description" id="c_com_hantsylabs_example_spring_conference_model_Conference_description" z="sbNqlHJosU9ujLDG5Fc/CS91CnQ="/>
+        <field:datetime dateTimePattern="${conference_endeddate_date_format}" field="endedDate" id="c_com_hantsylabs_example_spring_conference_model_Conference_endedDate" required="true" z="itcGmGPjuqWvkBg4c2dTEaCA+GQ="/>
+        <field:input field="slug" id="c_com_hantsylabs_example_spring_conference_model_Conference_slug" required="true" z="3FIZH3fjMbx7ATOWIqq/N1jU6k8="/>
+        <field:simple field="signups" id="c_com_hantsylabs_example_spring_conference_model_Conference_signups" messageCode="entity_reference_not_managed" messageCodeAttribute="Signup" z="UhMXscxyREh+x0IqZqP2bef1gAM="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_hantsylabs_example_spring_conference_model_Conference" render="${not empty dependencies}" z="aaE5IK+IniX5qdFzhQ1YWPRegvc="/>
+</div>
