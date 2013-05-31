@@ -467,25 +467,12 @@
 	<build>
 		<pluginManagement>
 			<plugins>
-				<!-- <plugin>
-					<groupId>com.mysema.maven</groupId>
-					<artifactId>apt-maven-plugin</artifactId>
-					<version>1.0.9</version>
-					<executions>
-						<execution>
-							<goals>
-								<goal>process</goal>
-							</goals>
-							<configuration>
-								<outputDirectory>target/generated-sources/java</outputDirectory>
-								<processors>
-									<processor>org.springframework.data.mongodb.repository.support.MongoAnnotationProcessor</processor>
-									<processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor>
-								</processors>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin> -->
+				<!-- <plugin> <groupId>com.mysema.maven</groupId> <artifactId>apt-maven-plugin</artifactId> 
+					<version>1.0.9</version> <executions> <execution> <goals> <goal>process</goal> 
+					</goals> <configuration> <outputDirectory>target/generated-sources/java</outputDirectory> 
+					<processors> <processor>org.springframework.data.mongodb.repository.support.MongoAnnotationProcessor</processor> 
+					<processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor> </processors> 
+					</configuration> </execution> </executions> </plugin> -->
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>build-helper-maven-plugin</artifactId>
@@ -517,8 +504,36 @@
 					<configuration>
 						<source>${java.version}</source>
 						<target>${java.version}</target>
+						<compilerArgument>-proc:none</compilerArgument>
 						<encoding>${project.build.sourceEncoding}</encoding>
 					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.bsc.maven</groupId>
+					<artifactId>maven-processor-plugin</artifactId>
+					<version>2.0.5</version>
+					<executions>
+						<execution>
+							<id>process</id>
+							<goals>
+								<goal>process</goal>
+							</goals>
+							<phase>generate-sources</phase>
+							<configuration>
+								<processors>
+									<processor>org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor</processor>
+								</processors>
+								<outputDirectory>${project.build.directory}/generated-sources/java/</outputDirectory>
+							</configuration>
+						</execution>
+					</executions>
+					<dependencies>
+						<dependency>
+							<groupId>org.hibernate</groupId>
+							<artifactId>hibernate-jpamodelgen</artifactId>
+							<version>1.2.0.Final</version>
+						</dependency>
+					</dependencies>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -555,7 +570,7 @@
 							<aspectLibrary>
 								<groupId>org.springframework</groupId>
 								<artifactId>spring-aspects</artifactId>
-							</aspectLibrary> 
+							</aspectLibrary>
 							<aspectLibrary>
 								<groupId>org.springframework.data</groupId>
 								<artifactId>spring-data-mongodb-cross-store</artifactId>
@@ -614,7 +629,8 @@
 							<buildCommand>
 								<name>org.eclipse.ajdt.core.ajbuilder</name>
 								<arguments>
-									<aspectPath>org.springframework.aspects, org.springframework.data.mongodb.crossstore</aspectPath>
+									<aspectPath>org.springframework.aspects,
+										org.springframework.data.mongodb.crossstore</aspectPath>
 								</arguments>
 							</buildCommand>
 							<buildCommand>

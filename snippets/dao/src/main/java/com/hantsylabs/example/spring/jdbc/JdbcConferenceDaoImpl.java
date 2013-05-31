@@ -11,8 +11,10 @@ import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementSetter;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -130,6 +132,24 @@ public class JdbcConferenceDaoImpl extends JdbcDaoSupport implements
 		if (log.isDebugEnabled()) {
 			log.debug("rows deleted @" + deleted);
 		}
+	}
+	
+
+	public Conference findBySlug1(String slug) {
+		List<Conference> confs = getJdbcTemplate().query(
+				"select * from conference where slug=?", new Object[] { slug },
+				new ResultSetExtractor<List<Conference>>(){
+
+					@Override
+					public List<Conference> extractData(ResultSet rs)
+							throws SQLException, DataAccessException {
+						// TODO Auto-generated method stub
+						return null;
+					}});
+		if (!confs.isEmpty()) {
+			return confs.get(0);
+		}
+		return null;
 	}
 
 	@Override
