@@ -112,6 +112,7 @@ public class ConferencRepositoryImplTest {
 	@After
 	public void afterTestCase() {
 		log.debug("==================after test case=========================");
+		signupRepository.deleteAll();
 		conferenceRepository.deleteAll();
 	}
 
