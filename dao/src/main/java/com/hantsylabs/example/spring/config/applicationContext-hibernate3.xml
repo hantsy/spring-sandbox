@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-	<jdbc:embedded-database id="dataSource">
+	<jdbc:embedded-database id="dataSource" type="H2">
 	</jdbc:embedded-database>
 
 	<bean id="sessionFactory"

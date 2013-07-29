@@ -16,4 +16,4 @@ insert
         conference
         ( name, slug, description, started_date, ended_date, version) 
     values
-        ( 'JUD2013', 'jud-2013', 'JBoss User Developer Conference 2013: Boston', '2012-06-23 00:00:00', '2012-06-29 00:00:00',  1);
+        ( 'JUD2013', 'jud-2013', 'SpringOne Conference 2013: USA', '2012-06-23 00:00:00', '2012-06-29 00:00:00',  1);
