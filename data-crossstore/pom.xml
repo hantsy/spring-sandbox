@@ -7,7 +7,7 @@
 	<name>data-mongo-crossstore-snippets</name>
 	<parent>
 		<groupId>com.hantsylabs.example.spring</groupId>
-		<artifactId>snippets-parent</artifactId>
+		<artifactId>spring-sandbox</artifactId>
 		<version>0.1.0.BUILD-SNAPSHOT</version>
 		<relativePath>../</relativePath>
 	</parent>

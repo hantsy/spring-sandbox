@@ -3,13 +3,16 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.hantsylabs.example.spring</groupId>
-	<artifactId>spring-sandbox-parent</artifactId>
+	<artifactId>spring-sandbox</artifactId>
 	<packaging>pom</packaging>
 	<version>0.1.0.BUILD-SNAPSHOT</version>
 	<name>Spring Sandbox</name>
 	<modules>
-		<module>snippets</module>
-		<module>webapp</module>
+		<module>dao</module>
+		<module>data-crossstore</module>
+		<module>data-jpa</module>
+		<module>data-mongo</module>
+		<module>jpa</module>
 	</modules>
 	<properties>
 		<aspectj.version>1.7.2</aspectj.version>
