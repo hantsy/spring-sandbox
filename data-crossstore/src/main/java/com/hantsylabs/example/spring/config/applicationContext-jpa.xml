@@ -46,4 +46,6 @@
 	<!-- Adds transaparent exception translation to the DAOs -->
 	<bean
 		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+	<tx:annotation-driven mode="aspectj"/> 
 </beans>

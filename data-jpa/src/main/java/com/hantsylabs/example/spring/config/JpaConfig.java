@@ -5,6 +5,7 @@ import java.util.Properties;
 import javax.sql.DataSource;
 
 import org.hibernate.ejb.HibernatePersistence;
+import org.springframework.context.annotation.AdviceMode;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @ComponentScan(basePackages = { "com.hantsylabs.example.spring.jpa" } )
 @EnableJpaRepositories(basePackages = { "com.hantsylabs.example.spring.jpa" })
-@EnableTransactionManagement
+@EnableTransactionManagement(mode=AdviceMode.ASPECTJ)
 public class JpaConfig {
 
 	@Bean
