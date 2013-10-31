@@ -1,13 +1,6 @@
 package com.hantsylabs.example.spring.model;
 
-import java.util.Date;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
@@ -16,23 +9,11 @@ import javax.validation.constraints.Size;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.hibernate.validator.constraints.Email;
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@EntityListeners(value= {AuditListener.class})
-public class Signup {
+public class Signup extends AuditableEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
-	private Long id;
 
-	@Version
-	private Integer version;
 
 	@NotNull
 	private String firstName;
@@ -54,18 +35,6 @@ public class Signup {
 
 	private String comment;
 
-	@DateTimeFormat(style = "M-")
-	private Date createdDate;
-	
-	@DateTimeFormat(style = "M-")
-	private Date modifiedDate;
-	
-	@ManyToOne
-	private User createdBy;
-	
-	@ManyToOne
-	private User modifiedBy;
-
 	@ManyToOne()
 	private Conference conference;
 
@@ -75,26 +44,6 @@ public class Signup {
 	public String toString() {
 		return ReflectionToStringBuilder.toString(this,
 				ToStringStyle.SHORT_PREFIX_STYLE);
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-
-
-	public Integer getVersion() {
-		return this.version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 	public String getFirstName() {
@@ -153,14 +102,6 @@ public class Signup {
 		this.comment = comment;
 	}
 
-	public Date getCreatedDate() {
-		return this.createdDate;
-	}
-
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
-	}
-
 	public Conference getConference() {
 		return this.conference;
 	}
@@ -177,37 +118,6 @@ public class Signup {
 		this.status = status;
 	}
 
-
-
-	public Date getModifiedDate() {
-		return modifiedDate;
-	}
-
-
-
-	public void setModifiedDate(Date modifiedDate) {
-		this.modifiedDate = modifiedDate;
-	}
-
-
-	public User getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(User createdBy) {
-		this.createdBy = createdBy;
-	}
-
-	public User getModifiedBy() {
-		return modifiedBy;
-	}
-
-	public void setModifiedBy(User modifiedBy) {
-		this.modifiedBy = modifiedBy;
-	}
-
-
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -215,8 +125,6 @@ public class Signup {
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		return result;
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {

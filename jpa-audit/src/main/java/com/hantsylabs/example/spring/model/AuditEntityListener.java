@@ -5,7 +5,7 @@ import java.util.Date;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
-public class AuditListener {
+public class AuditEntityListener {
 	@PrePersist
 	public void prePersist(Object o) {
 		final Date _createdDate = new Date();
