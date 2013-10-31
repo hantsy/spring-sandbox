@@ -10,22 +10,22 @@ public class AuditEntityListener {
 	public void prePersist(Object o) {
 		final Date _createdDate = new Date();
 
-		if (o instanceof Signup) {
-			Signup signup = (Signup) o;
-			signup.setCreatedDate(_createdDate);
-			signup.setModifiedDate(_createdDate);
-			signup.setCreatedBy(SecurityUtils.getCurrentUser());
-			signup.setModifiedBy(SecurityUtils.getCurrentUser());
+		if (o instanceof AuditableEntity) {
+			AuditableEntity entity = (AuditableEntity) o;
+			entity.setCreatedDate(_createdDate);
+			entity.setModifiedDate(_createdDate);
+			entity.setCreatedBy(SecurityUtils.getCurrentUser());
+			entity.setModifiedBy(SecurityUtils.getCurrentUser());
 		}
 
 	}
 
 	@PreUpdate
 	public void preUpdate(Object o) {
-		if (o instanceof Signup) {
-			Signup signup = (Signup) o;
-			signup.setModifiedDate(new Date());
-			signup.setModifiedBy(SecurityUtils.getCurrentUser());
+		if (o instanceof AuditableEntity) {
+			AuditableEntity entity = (AuditableEntity) o;
+			entity.setModifiedDate(new Date());
+			entity.setModifiedBy(SecurityUtils.getCurrentUser());
 		}
 	}
 }
