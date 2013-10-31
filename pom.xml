@@ -13,7 +13,8 @@
 		<module>data-crossstore</module>
 		<module>data-jpa</module>
 		<module>data-mongo</module>
-		<module>data-audit</module>		
+		<module>data-audit</module>	
+		<module>jpa-audit</module>	
 	</modules>
 	<properties>
 		<aspectj.version>1.7.2</aspectj.version>
