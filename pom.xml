@@ -15,6 +15,7 @@
 		<module>data-mongo</module>
 		<module>data-audit</module>	
 		<module>jpa-audit</module>	
+		<module>jpa-revision</module>	
 	</modules>
 	<properties>
 		<aspectj.version>1.7.2</aspectj.version>
@@ -24,12 +25,12 @@
 		<slf4j.version>1.7.2</slf4j.version>
 		<querydsl.version>3.2.2</querydsl.version>
 		<mongo-java-driver.version>2.11.2</mongo-java-driver.version>
-		<spring.version>3.2.4.RELEASE</spring.version>
-		<spring-data-commons.version>1.6.1.RELEASE</spring-data-commons.version>
-		<spring-data-jpa.version>1.4.1.RELEASE</spring-data-jpa.version>
-		<spring-data-mongo.version>1.3.1.RELEASE</spring-data-mongo.version>
+		<spring.version>3.2.5.RELEASE</spring.version>
+		<spring-data-commons.version>1.6.2.RELEASE</spring-data-commons.version>
+		<spring-data-jpa.version>1.4.2.RELEASE</spring-data-jpa.version>
+		<spring-data-mongo.version>1.3.2.RELEASE</spring-data-mongo.version>
 		<spring-webflow.version>2.4.0.M1</spring-webflow.version>
-		<spring-security.version>3.2.0.RC1</spring-security.version>
+		<spring-security.version>3.2.0.RC2</spring-security.version>
 		<hibernate.version>4.2.6.Final</hibernate.version>
 	</properties>
 	<repositories>
@@ -203,6 +204,11 @@
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-core</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-envers</artifactId>
 				<version>${hibernate.version}</version>
 			</dependency>
 			<dependency>

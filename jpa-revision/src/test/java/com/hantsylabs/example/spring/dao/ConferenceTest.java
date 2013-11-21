@@ -11,6 +11,7 @@ import javax.persistence.PersistenceContext;
 
 import org.hibernate.envers.AuditReader;
 import org.hibernate.envers.AuditReaderFactory;
+import org.hibernate.envers.query.AuditEntity;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -26,6 +27,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionCallback;
+import org.springframework.transaction.support.TransactionCallbackWithoutResult;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import com.hantsylabs.example.spring.jpa.ConferenceRepository;
@@ -33,10 +35,12 @@ import com.hantsylabs.example.spring.jpa.SignupRepository;
 import com.hantsylabs.example.spring.jpa.UserRepository;
 import com.hantsylabs.example.spring.model.Address;
 import com.hantsylabs.example.spring.model.Conference;
+import com.hantsylabs.example.spring.model.ConferenceRevisionEntity;
 import com.hantsylabs.example.spring.model.SecurityUtils;
 import com.hantsylabs.example.spring.model.Signup;
 import com.hantsylabs.example.spring.model.Status;
 import com.hantsylabs.example.spring.model.User;
+import com.mysema.commons.lang.Assert;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:/com/hantsylabs/example/spring/config/applicationContext-jpa.xml")
@@ -117,11 +121,12 @@ public class ConferenceTest {
 
 	}
 
+	User user ;
 	@Before
 	@Transactional
 	public void beforeTestCase() {
 		log.debug("==================before test case=========================");
-		User user = userRepository.save(new User("hantsy"));
+		user = userRepository.save(new User("hantsy"));
 		log.debug("user id @" + user.getId());
 		SecurityUtils.user = user;
 		conferenceRepository.save(newConference());
@@ -202,5 +207,68 @@ public class ConferenceTest {
 			}
 		});
 
+	}
+
+	@Test
+	public void testCustomizedRevisionEntity() {
+
+		final Conference conference1 = newConference();
+
+		Conference conf1 = transactionTemplate
+				.execute(new TransactionCallback<Conference>() {
+
+					@Override
+					public Conference doInTransaction(TransactionStatus arg0) {
+						conference1.setSlug("test-jud");
+						conference1.setName("Test JUD");
+						conference1.getAddress().setCountry("US");
+						Conference reference = conferenceRepository
+								.save(conference1);
+						em.flush();
+						return reference;
+					}
+				});
+
+		// modifying description
+		assertTrue(null != conf1.getId());
+		final Conference conference2 = conferenceRepository
+				.findBySlug("test-jud");
+
+		log.debug("@conference @" + conference2);
+		assertTrue(null != conference2);
+
+		final Conference conf2 = transactionTemplate
+				.execute(new TransactionCallback<Conference>() {
+
+					@Override
+					public Conference doInTransaction(TransactionStatus arg0) {
+						conference2.setDescription("changing description...");
+						Conference result = conferenceRepository
+								.save(conference2);
+						em.flush();
+						return result;
+					}
+				});
+		
+		
+		transactionTemplate.execute(new TransactionCallbackWithoutResult() {
+			
+			@Override
+			protected void doInTransactionWithoutResult(TransactionStatus status) {
+				AuditReader reader = AuditReaderFactory.get(em);
+
+				List<Number> revisions = reader.getRevisions(Conference.class,
+						conf2.getId());
+				assertTrue(!revisions.isEmpty());
+				log.debug("@rev numbers@" + revisions);
+				
+				ConferenceRevisionEntity entity=em.find(ConferenceRevisionEntity.class, revisions.get(0));
+				
+			
+				log.debug("@rev 1@" + entity);
+				assertTrue(entity.getAuditor().getId().equals(user.getId()));
+				
+			}
+		});
 	}
 }
