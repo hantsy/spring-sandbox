@@ -121,7 +121,8 @@ public class ConferenceTest {
 
 	}
 
-	User user ;
+	User user;
+
 	@Before
 	@Transactional
 	public void beforeTestCase() {
@@ -139,7 +140,8 @@ public class ConferenceTest {
 	public void afterTestCase() {
 		log.debug("==================after test case=========================");
 		conferenceRepository.deleteAll();
-		em.clear();
+		// userRepository.deleteAll();
+		em.flush();
 	}
 
 	@Test
@@ -219,7 +221,8 @@ public class ConferenceTest {
 
 					@Override
 					public Conference doInTransaction(TransactionStatus arg0) {
-						conference1.setSlug("test-jud");
+						conference1
+								.setSlug("test-jud-testCustomizedRevisionEntity");
 						conference1.setName("Test JUD");
 						conference1.getAddress().setCountry("US");
 						Conference reference = conferenceRepository
@@ -232,7 +235,7 @@ public class ConferenceTest {
 		// modifying description
 		assertTrue(null != conf1.getId());
 		final Conference conference2 = conferenceRepository
-				.findBySlug("test-jud");
+				.findBySlug("test-jud-testCustomizedRevisionEntity");
 
 		log.debug("@conference @" + conference2);
 		assertTrue(null != conference2);
@@ -249,10 +252,9 @@ public class ConferenceTest {
 						return result;
 					}
 				});
-		
-		
+
 		transactionTemplate.execute(new TransactionCallbackWithoutResult() {
-			
+
 			@Override
 			protected void doInTransactionWithoutResult(TransactionStatus status) {
 				AuditReader reader = AuditReaderFactory.get(em);
@@ -261,14 +263,113 @@ public class ConferenceTest {
 						conf2.getId());
 				assertTrue(!revisions.isEmpty());
 				log.debug("@rev numbers@" + revisions);
-				
-				ConferenceRevisionEntity entity=em.find(ConferenceRevisionEntity.class, revisions.get(0));
-				
-			
+
+				ConferenceRevisionEntity entity = em.find(
+						ConferenceRevisionEntity.class, revisions.get(0));
+
 				log.debug("@rev 1@" + entity);
 				assertTrue(entity.getAuditor().getId().equals(user.getId()));
-				
+
 			}
 		});
+	}
+
+	@Test
+	public void testPropertyModification() {
+
+		final Conference conference1 = newConference();
+
+		Conference conf1 = transactionTemplate
+				.execute(new TransactionCallback<Conference>() {
+
+					@Override
+					public Conference doInTransaction(TransactionStatus arg0) {
+						conference1
+								.setSlug("test-jud-testPropertyModification");
+						conference1.setName("Test JUD");
+						conference1.getAddress().setCountry("US");
+						Conference reference = conferenceRepository
+								.save(conference1);
+						em.flush();
+						return reference;
+					}
+				});
+
+		// modifying description
+		assertTrue(null != conf1.getId());
+		final Conference conference2 = conferenceRepository
+				.findBySlug("test-jud-testPropertyModification");
+
+		log.debug("@conference @" + conference2);
+		assertTrue(null != conference2);
+
+		final Conference conf2 = transactionTemplate
+				.execute(new TransactionCallback<Conference>() {
+
+					@Override
+					public Conference doInTransaction(TransactionStatus arg0) {
+						conference2.setDescription("changing description...");
+						Conference result = conferenceRepository
+								.save(conference2);
+						em.flush();
+						return result;
+					}
+				});
+		transactionTemplate.execute(new TransactionCallbackWithoutResult() {
+
+			@Override
+			protected void doInTransactionWithoutResult(TransactionStatus status) {
+				AuditReader reader = AuditReaderFactory.get(em);
+
+				List<Number> revisions = reader.getRevisions(Conference.class,
+						conf2.getId());
+				assertTrue(!revisions.isEmpty());
+				log.debug("@rev numbers@" + revisions);
+				List list = reader
+						.createQuery()
+						.forEntitiesAtRevision(Conference.class,
+								revisions.get(0))
+						.add(AuditEntity.id().eq(conf2.getId()))
+						.add(AuditEntity.property("description").hasChanged())
+						.getResultList();
+
+				log.debug("@description list changed@" + list.size());
+				assertTrue(!list.isEmpty());
+
+				List slugList = reader
+						.createQuery()
+						.forEntitiesAtRevision(Conference.class,
+								revisions.get(0))
+						.add(AuditEntity.id().eq(conf2.getId()))
+						.add(AuditEntity.property("slug").hasChanged())
+						.getResultList();
+
+				log.debug("@slugList 1@" + slugList.size());
+				assertTrue(!slugList.isEmpty());
+
+				list = reader
+						.createQuery()
+						.forEntitiesAtRevision(Conference.class,
+								revisions.get(1))
+						.add(AuditEntity.id().eq(conf2.getId()))
+						.add(AuditEntity.property("description").hasChanged())
+						.getResultList();
+
+				log.debug("@description list changed@" + list.size());
+				assertTrue(!list.isEmpty());
+
+				slugList = reader
+						.createQuery()
+						.forEntitiesAtRevision(Conference.class,
+								revisions.get(1))
+						.add(AuditEntity.id().eq(conf2.getId()))
+						.add(AuditEntity.property("slug").hasChanged())
+						.getResultList();
+
+				log.debug("@slugList 1@" + slugList.size());
+				assertTrue(slugList.isEmpty());
+			}
+		});
+
 	}
 }

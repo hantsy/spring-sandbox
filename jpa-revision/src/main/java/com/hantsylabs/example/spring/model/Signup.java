@@ -39,7 +39,6 @@ public class Signup implements Serializable {
 	@Email
 	private String email;
 
-	@NotNull
 	private String phone;
 
 	private String occupation;

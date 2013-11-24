@@ -48,11 +48,11 @@ public class Conference implements Serializable {
 	private String name;
 
 	@NotNull
-	@Audited
+	@Audited(withModifiedFlag=true)
 	private String description;
 
 	@NotNull
-	@Audited
+	@Audited(withModifiedFlag=true)
 	private String slug;
 
 	@NotNull

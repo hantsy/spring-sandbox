@@ -46,5 +46,6 @@
 	<context:component-scan
 		base-package="com.hantsylabs.example.spring.jpa">
 	</context:component-scan>
-	<jpa:repositories base-package="com.hantsylabs.example.spring.jpa"></jpa:repositories>
+	<jpa:repositories base-package="com.hantsylabs.example.spring.jpa"
+	 factory-class="org.springframework.data.envers.repository.support.EnversRevisionRepositoryFactoryBean"></jpa:repositories>
 </beans>
