@@ -13,9 +13,11 @@
 		<module>data-crossstore</module>
 		<module>data-jpa</module>
 		<module>data-mongo</module>
-		<module>data-audit</module>	
-		<module>jpa-audit</module>	
-		<module>jpa-revision</module>	
+		<module>data-audit</module>
+		<module>jpa-audit</module>
+		<module>jpa-revision</module>
+		<module>jpa-cache</module>
+		<module>spring-cache</module>
 	</modules>
 	<properties>
 		<aspectj.version>1.7.2</aspectj.version>
@@ -227,6 +229,26 @@
 				</exclusions>
 			</dependency>
 			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-ehcache</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.sf.ehcache</groupId>
+				<artifactId>ehcache-core</artifactId>
+				<version>2.4.6</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-infinispan</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.infinispan</groupId>
+				<artifactId>infinispan-core</artifactId>
+				<version>5.3.0.Final</version>
+			</dependency>
+			<dependency>
 				<groupId>org.hibernate.javax.persistence</groupId>
 				<artifactId>hibernate-jpa-2.0-api</artifactId>
 				<version>1.0.1.Final</version>
@@ -388,13 +410,13 @@
 				<artifactId>spring-data-commons</artifactId>
 				<version>${spring-data-commons.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-jpa</artifactId>
 				<version>${spring-data-jpa.version}</version>
 			</dependency>
-			
+
 			<dependency>
 				<groupId>org.springframework.data</groupId>
 				<artifactId>spring-data-mongodb</artifactId>
