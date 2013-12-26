@@ -7,6 +7,9 @@ import javax.persistence.PersistenceContext;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
 import com.hantsylabs.example.spring.dao.ConferenceDao;
@@ -21,6 +24,7 @@ public class JpaConferenceDaoImpl implements ConferenceDao {
 	private EntityManager entityManager;
 
 	@Override
+	@Cacheable(value="conference", key="#id")
 	public Conference findById(Long id) {
 		return (Conference) entityManager.find(Conference.class, id);
 
@@ -48,6 +52,7 @@ public class JpaConferenceDaoImpl implements ConferenceDao {
 	}
 
 	@Override
+	@CacheEvict(value="conference", allEntries=true)
 	public void deleteAll() {
 		List<Conference> all = entityManager.createQuery("from Conference",
 				Conference.class).getResultList();
@@ -57,6 +62,7 @@ public class JpaConferenceDaoImpl implements ConferenceDao {
 	}
 
 	@Override
+	@CachePut(value="conference", key="#result.id")
 	public Conference findBySlug(String slug) {
 		List<Conference> all = entityManager
 				.createQuery("from Conference where slug=:slug", Conference.class)

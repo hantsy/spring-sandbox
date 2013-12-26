@@ -5,10 +5,15 @@ import java.util.Properties;
 import javax.sql.DataSource;
 
 import org.hibernate.ejb.HibernatePersistence;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.ehcache.EhCacheCacheManager;
+import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
 import org.springframework.context.annotation.AdviceMode;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -19,12 +24,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @ComponentScan(basePackages = { "com.hantsylabs.example.spring.dao",
 		"com.hantsylabs.example.spring.jpa" })
-@EnableTransactionManagement(mode=AdviceMode.ASPECTJ)
+@EnableTransactionManagement(mode = AdviceMode.ASPECTJ)
+@EnableCaching(mode=AdviceMode.ASPECTJ)
 public class JpaConfig {
 
 	@Bean
 	public DataSource dataSource() {
-		return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).build();
+		return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2)
+				.build();
 	}
 
 	@Bean
@@ -48,6 +55,20 @@ public class JpaConfig {
 	@Bean
 	public PlatformTransactionManager transactionManager() {
 		return new JpaTransactionManager(entityManagerFactory().getObject());
+	}
+
+	@Bean
+	public CacheManager cacheManager() {
+		return new EhCacheCacheManager(ehcache().getObject());
+	}
+
+	@Bean
+	public EhCacheManagerFactoryBean ehcache() {
+
+		EhCacheManagerFactoryBean ehcache = new EhCacheManagerFactoryBean();
+		//ehcache.setConfigLocation(new ClassPathResource("ehcache.xml"));
+
+		return ehcache;
 	}
 
 }
