@@ -37,6 +37,7 @@ public class JpaConferenceDaoImpl implements ConferenceDao {
 	}
 
 	@Override
+	@CacheEvict(value="conference", key="#p0.id")
 	public void update(final Conference conference) {
 		entityManager.merge(conference);
 	}
