@@ -14,3 +14,4 @@ It will include the following projects from SpringSource community:
 7. Spring Integration
 
 
+**All codes are migrated to Spring 4 and Java 8**, check out the source codes from [https://github.com/hantsy/spring4-sandbox](https://github.com/hantsy/spring4-sandbox).
